@@ -15,6 +15,10 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    binarytree.h \
+    stadiuminfo.h \
+    date.h \
+    planner.h
 
 FORMS    += mainwindow.ui
