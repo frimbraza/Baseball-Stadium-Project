@@ -3,7 +3,8 @@
 
 class Date
 {
-
+    string month;
+    string day;
 };
 
 #endif // DATE_H
