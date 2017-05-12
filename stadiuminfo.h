@@ -4,7 +4,7 @@
 #include "date.h"
 
 
-class Stadium
+class StadiumInfo
 {
 private:
     // Info gathered in the docs
@@ -21,7 +21,7 @@ private:
     bool NL;
 
 public:
-    Stadium();
+    StadiumInfo();
 
     void setName(string newName);
     void setTeam(string newTeam);
