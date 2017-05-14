@@ -20,7 +20,7 @@ public:
     Date addDays(int) const;
     void printNumeric() const;
     void printAlpha() const;
-    void converToDate(string s, Date & date);
+    Date converToDate(string s);
     bool operator < (const Date&) const;
     bool operator > (const Date&) const;
 private:
@@ -30,7 +30,7 @@ private:
     unsigned number(const string&) const;
 };
 
-void Date::converToDate(string str, Date & date)
+Date Date::converToDate(string str)
 {
     string strWords[3];
     short counter = 0;
@@ -41,12 +41,16 @@ void Date::converToDate(string str, Date & date)
         }
     }
 
+    Date date;
+
     stringstream day_s_str(strWords[1]);
     stringstream year_s_str(strWords[2]);
     date.monthName = strWords[0];
     day_s_str >> date.day;
     year_s_str >> date.year;
     date.month = date.number(monthName);
+
+    return date;
 
 }
 
