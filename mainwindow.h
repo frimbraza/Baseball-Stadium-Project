@@ -2,8 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <fstream>
+#include <iostream>
+#include <string>
 #include "binarytree.h"
 #include "stadiuminfo.h"
+
 
 struct Souvenir
 {
@@ -27,6 +31,7 @@ public:
     BinaryTree<StadiumInfo> sortByTeamName();
     BinaryTree<StadiumInfo> sortByStadiumName();
     BinaryTree<StadiumInfo> sortByDate();
+    void readFromFile(BinaryTree<StadiumInfo>*&);
 
     void grassList();
     void alList();
@@ -34,7 +39,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    BinaryTree<StadiumInfo> stadiumList;
+    BinaryTree<StadiumInfo>* stadiumList;
 
 
 };
