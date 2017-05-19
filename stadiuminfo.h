@@ -2,7 +2,9 @@
 #define STADIUMINFO_H
 
 #include "date.h"
+#include <iostream> // for testing, remove in the final draft
 
+using namespace std; // for testing, remove (maybe keep) in the final draft
 
 class StadiumInfo
 {

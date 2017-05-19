@@ -19,10 +19,11 @@ struct TreeNode
     }
 };
 
-template<typename E>
+template<typename E, typename C>
 class BinaryTree {
 private:
     TreeNode<E>* root;
+	C higherPriority;
     void insert(TreeNode<E> *& nodePtr, TreeNode<E> *&newNode);
     void destroySubTree(TreeNode<E> *nodePtr);
     void deleteNode(E, TreeNode<E> *& nodePtr);
@@ -43,27 +44,27 @@ public:
     E getValue(E);
     E getRootValue();
     void remove(E);
-    void displayInOrder() const { displayInOrder(root); }
-    void displayPreOrder() const { displayPreOrder(root); }
-    void displayPostOrder() const { displayPostOrder(root); }
+    // void displayInOrder() const { displayInOrder(root); }
+    // void displayPreOrder() const { displayPreOrder(root); }
+    // void displayPostOrder() const { displayPostOrder(root); }
     int getSize() const { return getSize(root); }
 };
 
-template<typename E>
-inline BinaryTree<E>::BinaryTree(const BinaryTree<E> & other)
+template<typename E, typename C>
+inline BinaryTree<E, C>::BinaryTree(const BinaryTree<E, C> & other)
 {
     copy(root, other.root);
 }
 
-template<typename E>
-inline void BinaryTree<E>::operator=(const BinaryTree<E> & other)
+template<typename E, typename C>
+inline void BinaryTree<E, C>::operator=(const BinaryTree<E, C> & other)
 {
     destroySubTree(root);
     copy(root, other.root);
 }
 
-template<typename E>
-void BinaryTree<E>::insertNode(E num) {
+template<typename E, typename C>
+void BinaryTree<E, C>::insertNode(E num) {
     TreeNode<E>* newNode = new TreeNode<E>;
 
     newNode->value = num;
@@ -73,18 +74,19 @@ void BinaryTree<E>::insertNode(E num) {
     insert(root, newNode);
 }
 
-template<typename E>
-void BinaryTree<E>::insert(TreeNode<E> *&nodePtr, TreeNode<E> *&newNode) {
+template<typename E, typename C>
+void BinaryTree<E, C>::insert(TreeNode<E> *&nodePtr, TreeNode<E> *&newNode) {
     if (nodePtr == NULL)
         nodePtr = newNode;
-    else if (newNode->value < nodePtr->value)
+	else if (higherPriority(newNode->value,nodePtr->value))
         insert(nodePtr->left, newNode);
     else
         insert(nodePtr->right, newNode);
 }
 
-template<typename E>
-void BinaryTree<E>::displayInOrder(TreeNode<E> *nodePtr) const {
+/*
+template<typename E, typename C>
+void BinaryTree<E, C>::displayInOrder(TreeNode<E> *nodePtr) const {
     if (nodePtr) {
         displayInOrder(nodePtr->left);
         cout << nodePtr->value << " ";
@@ -92,8 +94,8 @@ void BinaryTree<E>::displayInOrder(TreeNode<E> *nodePtr) const {
     }
 }
 
-template<typename E>
-void BinaryTree<E>::displayPreOrder(TreeNode<E> *nodePtr) const {
+template<typename E, typename C>
+void BinaryTree<E, C>::displayPreOrder(TreeNode<E> *nodePtr) const {
     if (nodePtr) {
         cout << nodePtr->value << " ";
         displayPreOrder(nodePtr->left);
@@ -101,32 +103,32 @@ void BinaryTree<E>::displayPreOrder(TreeNode<E> *nodePtr) const {
     }
 }
 
-template<typename E>
-void BinaryTree<E>::displayPostOrder(TreeNode<E> *nodePtr) const {
+template<typename E, typename C>
+void BinaryTree<E, C>::displayPostOrder(TreeNode<E> *nodePtr) const {
     if (nodePtr) {
         displayPostOrder(nodePtr->left);
         displayPostOrder(nodePtr->right);
         cout << nodePtr->value << " ";
     }
 }
+*/
 
-template<typename E>
-void BinaryTree<E>::destroySubTree(TreeNode<E> *nodePtr) {
+template<typename E, typename C>
+void BinaryTree<E, C>::destroySubTree(TreeNode<E> *nodePtr) {
     while (nodePtr)
     {
         makeDeletion(nodePtr);
     }
-    cout << "\nBinary Tree Destroyed\n";
 }
 
-template<typename E>
-bool BinaryTree<E>::searchNode(E num) {
+template<typename E, typename C>
+bool BinaryTree<E, C>::searchNode(E num) {
     TreeNode<E>* nodePtr = root;
 
     while (nodePtr) {
         if (nodePtr->value == num)
             return true;
-        else if (num < nodePtr->value)
+        else if (higherPriority(num, nodePtr->value))
             nodePtr = nodePtr->left;
         else
             nodePtr = nodePtr->right;
@@ -134,23 +136,23 @@ bool BinaryTree<E>::searchNode(E num) {
     return false;
 }
 
-template<typename E>
-inline E BinaryTree<E>::getValue(E num)
+template<typename E, typename C>
+inline E BinaryTree<E, C>::getValue(E num)
 {
     TreeNode<E>* nodePtr = root;
 
     while (nodePtr) {
         if (nodePtr->value == num)
             return nodePtr->value;
-        else if (num < nodePtr->value)
+        else if (higherPriority(num, nodePtr->value))
             nodePtr = nodePtr->left;
         else
             nodePtr = nodePtr->right;
     }
 }
 
-template<typename E>
-inline E BinaryTree<E>::getRootValue()
+template<typename E, typename C>
+inline E BinaryTree<E, C>::getRootValue()
 {
     if (root)
     {
@@ -160,23 +162,23 @@ inline E BinaryTree<E>::getRootValue()
         return E();
 }
 
-template<typename E>
-void BinaryTree<E>::remove(E num) {
+template<typename E, typename C>
+void BinaryTree<E, C>::remove(E num) {
     deleteNode(num, root);
 }
 
-template<typename E>
-void BinaryTree<E>::deleteNode(E num, TreeNode<E> *&nodePtr) {
-    if (num < nodePtr->value)
+template<typename E, typename C>
+void BinaryTree<E, C>::deleteNode(E num, TreeNode<E> *&nodePtr) {
+    if (higherPriority(num,nodePtr->value))
         deleteNode(num, nodePtr->left);
-    else if (num > nodePtr->value)
+    else if (higherPriority(nodePtr->value,num))
         deleteNode(num, nodePtr->right);
     else
         makeDeletion(nodePtr);
 }
 
-template<typename E>
-void BinaryTree<E>::makeDeletion(TreeNode<E> *&nodePtr) {
+template<typename E, typename C>
+void BinaryTree<E, C>::makeDeletion(TreeNode<E> *&nodePtr) {
     TreeNode<E> *tempNodePtr;
 
     if (nodePtr == NULL)
@@ -210,8 +212,8 @@ void BinaryTree<E>::makeDeletion(TreeNode<E> *&nodePtr) {
     }
 }
 
-template<typename E>
-inline int BinaryTree<E>::getSize(TreeNode<E>* nodePtr) const
+template<typename E, typename C>
+inline int BinaryTree<E, C>::getSize(TreeNode<E>* nodePtr) const
 {
     if (!nodePtr)
         return 0;
@@ -223,8 +225,8 @@ inline int BinaryTree<E>::getSize(TreeNode<E>* nodePtr) const
     }
 }
 
-template<typename E>
-inline void BinaryTree<E>::copy(TreeNode<E>*& current, const TreeNode<E>* other)
+template<typename E, typename C>
+inline void BinaryTree<E, C>::copy(TreeNode<E>*& current, const TreeNode<E>* other)
 {
     if (other == NULL)
     {

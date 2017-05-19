@@ -7,7 +7,19 @@
 #include <string>
 #include "binarytree.h"
 #include "stadiuminfo.h"
+#include "date.h"
 
+struct StadiumComparebyTeam
+{
+    bool operator()(StadiumInfo first, StadiumInfo second)
+    {
+        int compareValue = first.getTeam().compare(second.getTeam());
+        if (compareValue < 0)
+            return true;
+        else
+            return false;
+    }
+};
 
 struct Souvenir
 {
@@ -28,10 +40,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     // Fix these up to be compatible with the GUI
-    BinaryTree<StadiumInfo> sortByTeamName();
-    BinaryTree<StadiumInfo> sortByStadiumName();
-    BinaryTree<StadiumInfo> sortByDate();
-    void readFromFile(BinaryTree<StadiumInfo>*&);
+    BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByTeamName();
+    BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByStadiumName();
+    BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByDate();
+    void readFromFile(BinaryTree<StadiumInfo, StadiumComparebyTeam>*&);
 
     void grassList();
     void alList();
@@ -39,7 +51,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    BinaryTree<StadiumInfo>* stadiumList;
+    BinaryTree<StadiumInfo, StadiumComparebyTeam>* stadiumList;
 
 
 };
