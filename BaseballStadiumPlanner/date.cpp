@@ -1,32 +1,30 @@
 #include "date.h"
+#include <string>
 
-Date Date::converToDate(string str)
+void Date::converToDate(string str)
 {
-    string strWords[3];
-    short counter = 0;
-    for(unsigned long i=0;i<str.length();i++){
-        strWords[counter] = str[i];
-        if(str[i] == ' '){
-            counter++;
-        }
-    }
+    string str1, str2, str3;
+    int pos;
 
-    Date date;
+    pos = str.find(' ', 0);
 
-    stringstream day_s_str(strWords[1]);
-    stringstream year_s_str(strWords[2]);
-    date.monthName = strWords[0];
-    day_s_str >> date.day;
-    year_s_str >> date.year;
-    date.month = date.number(monthName);
+    str1 = str.substr(0,pos);
+    monthName = str1;
+    str2 = str.substr(str1.length()+1,2);
+    str3 = str.substr(str1.length()+str2.length()+2,4);
 
-    return date;
+    stringstream day_s_str(str2);
+    stringstream year_s_str(str3);
+    day_s_str >> day;
+    year_s_str >> year;
+    month = number(monthName);
+
 
 }
 
 ostream& operator<<(ostream& out, Date& date)
 {
-    out << date.monthName <<" " << date.day <<" " << date.year <<" ";
+    out << date.month <<" " << date.day <<" " << date.year <<" ";
 
     return out;
 
@@ -58,7 +56,7 @@ bool Date::operator > (const Date& date) const
 
 }
 
-unsigned Date::number(const string& mn) const
+int Date::number(const string& mn) const
 {
 
     if (mn == "january" || mn == "January")

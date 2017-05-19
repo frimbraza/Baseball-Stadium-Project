@@ -55,7 +55,7 @@ void MainWindow::readFromFile()
         Date date;
         date.converToDate(openedDate);
 
-        // cout << "Date:" << date << endl; // COUT the date, for testing
+
         bool isNL;
         if(NL == "NL")
             isNL = true;
@@ -96,4 +96,12 @@ void MainWindow::on_TripsButton_clicked()
     TripWindow tripWindow;
     tripWindow.setModal(true);
     tripWindow.exec();
+}
+
+void MainWindow::on_AdminButton_clicked()
+{
+    adminWindow = new AdminLogin(this);
+    //adminWindow->;
+    adminWindow->setModal(true);
+    adminWindow->show();
 }
