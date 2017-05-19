@@ -97,9 +97,9 @@ bool StadiumInfo::isNL()
 
 ostream& operator<<(ostream& out, StadiumInfo& stadium)
 {
-    out << stadium.name << endl << stadium.team << endl << stadium.street <<endl
-        << stadium.cityInfo <<endl <<stadium.phoneNumber <<endl << stadium.capacity <<endl
-        << stadium.opened;
+    out << stadium.name << endl << stadium.team << endl << stadium.street << endl
+        << stadium.cityInfo << endl <<stadium.phoneNumber <<endl << stadium.opened << endl
+        << stadium.capacity;
 
     return out;
 }

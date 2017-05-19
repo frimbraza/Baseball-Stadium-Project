@@ -18,7 +18,6 @@ struct StadiumComparebyTeam
             return true;
         else
             return false;
-//        return true;
     }
 };
 
@@ -49,6 +48,9 @@ public:
     void grassList();
     void alList();
     void nlList();
+
+private slots:
+    void on_ListButton_clicked();
 
 private:
     Ui::MainWindow *ui;

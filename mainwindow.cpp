@@ -28,7 +28,6 @@ void MainWindow::readFromFile()
 
     string name, team,street,cityInfo,phoneNum,capacity,openedDate,NL;
     StadiumInfo stadium;
-//    BinaryTree<StadiumInfo, StadiumComparebyTeam>* list;
 
     while(!inFile.eof())
     {
@@ -37,17 +36,18 @@ void MainWindow::readFromFile()
         std::getline(inFile,street,'\n');
         std::getline(inFile,cityInfo,'\n');
         std::getline(inFile,phoneNum,'\n');
-        std::getline(inFile,capacity,'\n');
         std::getline(inFile,openedDate,'\n');
+        std::getline(inFile,capacity,'\n');
         std::getline(inFile,NL,'\n');
 
-        stringstream cap_s_str(capacity);
-        int cap;
-        cap_s_str >> cap;
+        // stringstream cap_s_str(capacity);
+        int cap = stoi(capacity);
+        // cap_s_str >> cap;
 
         Date date;
         date.converToDate(openedDate);
 
+        cout << "Date:" << date << endl;
         bool isNL;
         if(NL == "NL")
             isNL = true;
@@ -63,21 +63,16 @@ void MainWindow::readFromFile()
         stadium.setOpened(date);
         stadium.setIsNL(isNL);
 
-        stadiumList->insertNode(stadium);
-
+        // list->insertNode(stadium);
+        cout << stadium << endl;
     }
 
     inFile.close();
 
-//    stadiumList->displayInOrder();
-    stadiumList->displayInOrder();
-
 
 }
 
+void MainWindow::on_ListButton_clicked()
+{
 
-
-
-
-
-
+}
