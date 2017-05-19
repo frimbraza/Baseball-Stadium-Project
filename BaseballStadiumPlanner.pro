@@ -13,12 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    date.cpp \
+    stadiuminfo.cpp
 
 HEADERS  += mainwindow.h \
     binarytree.h \
     stadiuminfo.h \
-    date.h \
-    planner.h
+    date.h
 
 FORMS    += mainwindow.ui
