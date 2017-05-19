@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "listwindow.h"
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -43,16 +45,22 @@ public:
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByTeamName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByStadiumName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByDate();
-    void readFromFile(BinaryTree<StadiumInfo, StadiumComparebyTeam>*&);
+    void readFromFile();
 
     void grassList();
     void alList();
     void nlList();
 
+private slots:
+    void on_ListButton_clicked();
+
+    void on_TripsButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    ListWindow* listWindow;
     BinaryTree<StadiumInfo, StadiumComparebyTeam>* stadiumList;
-
+    string stadInfoString;  // Added for testing purposes
 
 };
 

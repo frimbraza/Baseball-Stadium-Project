@@ -45,6 +45,8 @@ public:
     bool hasGrass();
     bool isNL();
 
+    friend ostream& operator<<(ostream& out, StadiumInfo& stadium);
+
 };
 
 
