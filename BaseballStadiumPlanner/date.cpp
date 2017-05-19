@@ -24,6 +24,15 @@ Date Date::converToDate(string str)
 
 }
 
+ostream& operator<<(ostream& out, Date& date)
+{
+    out << date.monthName <<" " << date.day <<" " << date.year <<" ";
+
+    return out;
+
+}
+
+
 bool Date::operator < (const Date& date) const
 {
     if(year < date.year)

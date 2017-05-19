@@ -1,4 +1,3 @@
-
 #include "stadiuminfo.h"
 
 StadiumInfo::StadiumInfo()
@@ -8,90 +7,128 @@ StadiumInfo::StadiumInfo()
 
 void StadiumInfo::setName(string newName)
 {
-
+    name = newName;
 }
 
 void StadiumInfo::setTeam(string newTeam)
 {
-    return;
+    team = newTeam;
 }
 
 void StadiumInfo::setStreet(string newStreet)
 {
-    return;
+    street = newStreet;
 }
 
 void StadiumInfo::setCityInfo(string newCity)
 {
-    return;
+    cityInfo = newCity;
 }
 
 void StadiumInfo::setPhone(string newPhone)
 {
-    return;
+    phoneNumber = newPhone;
 }
 
 void StadiumInfo::setCap(int newCap)
 {
-    return;
+    capacity = newCap;
 }
 
 void StadiumInfo::setOpened(Date newOpen)
 {
-    return;
+    opened = newOpen;
 }
 
 void StadiumInfo::setHasGrass(bool newHasGrass)
 {
-    return;
+    grass = newHasGrass;
 }
 
 void StadiumInfo::setIsNL(bool newIsNL)
 {
-    return;
+    NL = newIsNL;
 }
 
 string StadiumInfo::getName()
 {
-    return string();
+    return name;
 }
 
 string StadiumInfo::getTeam()
 {
-    return string();
+    return team;
 }
 
 string StadiumInfo::getStreet()
 {
-    return string();
+    return street;
 }
 
 string StadiumInfo::getCityInfo()
 {
-    return string();
+    return cityInfo;
 }
 
 string StadiumInfo::getPhone()
 {
-    return string();
+    return phoneNumber;
 }
 
 int StadiumInfo::getCapacity()
 {
-    return int();
+    return capacity;
 }
 
 Date StadiumInfo::getOpened()
 {
-    return Date();
+    return opened;
 }
 
 bool StadiumInfo::hasGrass()
 {
-    return false;
+    return grass;
 }
 
 bool StadiumInfo::isNL()
 {
-    return false;
+    return NL;
 }
+
+ostream& operator<<(ostream& out, StadiumInfo& stadium)
+{
+    out << stadium.name << "\n" << stadium.team << "\n" << stadium.street << "\n"
+        << stadium.cityInfo << "\n" <<stadium.phoneNumber << "\n" << stadium.opened << "\n"
+        << stadium.capacity;
+
+    return out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
