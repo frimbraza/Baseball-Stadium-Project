@@ -14,7 +14,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::readFromFile(BinaryTree<StadiumInfo> *&list)
+void MainWindow::readFromFile(BinaryTree<StadiumInfo, StadiumComparebyTeam> *&list)
 {
     ifstream inFile;
 
