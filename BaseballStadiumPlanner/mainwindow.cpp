@@ -98,10 +98,3 @@ void MainWindow::on_TripsButton_clicked()
     tripWindow.exec();
 }
 
-void MainWindow::on_AdminButton_clicked()
-{
-    adminWindow = new AdminLogin(this);
-    //adminWindow->;
-    adminWindow->setModal(true);
-    adminWindow->show();
-}
