@@ -4,6 +4,8 @@
 #include <QDialog>
 // #include "mainwindow.h" // remember you added this. Should remove later
 #include <string>
+#include "stadiuminfo.h"
+#include "binarytree.h"
 
 namespace Ui {
 class ListWindow;
@@ -18,6 +20,10 @@ public:
     ~ListWindow();
 
     void setAllStadiumsString(std::string input);
+    void appendStadium(int);
+
+public slots:
+    void printAL();
 
 private slots:
     void on_listAllStadiums_clicked();
@@ -37,6 +43,8 @@ private:
     std::string NlStadInfo;
     std::string grassStadInfo;
 
+    // btree;
+    StadiumInfo stad;
 };
 
 #endif // LISTWINDOW_H

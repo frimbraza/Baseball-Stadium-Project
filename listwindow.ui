@@ -78,17 +78,37 @@
     <string>List Stadiums Chronologically</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="listDisplayBox">
+  <widget class="QTableWidget" name="TableWidget">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>30</y>
-     <width>551</width>
-     <height>361</height>
+     <x>325</x>
+     <y>20</y>
+     <width>561</width>
+     <height>351</height>
     </rect>
    </property>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>listAmLeagueStadiums</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printAL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>188</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>printAL()</slot>
+ </slots>
 </ui>

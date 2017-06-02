@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    stadiumList = new BinaryTree<StadiumInfo, StadiumComparebyTeam>();
     ui->setupUi(this);
+    stadiumList = new BinaryTree<StadiumInfo,StadiumComparebyTeam>();
     readFromFile();
 }
 
@@ -56,7 +56,7 @@ void MainWindow::readFromFile()
         Date date;
         date.converToDate(openedDate);
 
-
+        // cout << "Date:" << date << endl; // COUT the date, for testing
         bool isNL;
         if(NL == "NL")
             isNL = true;
@@ -73,12 +73,13 @@ void MainWindow::readFromFile()
         stadium.setIsNL(isNL);
 
         stadiumList->insertNode(stadium);
-        cout << stadium << endl; // Add this to COUT stadium info for testing
+        //list->insertNode(stadium);
+        // cout << stadium << endl; // Add this to COUT stadium info for testing
     }
 
     inFile.close();
 
-
+    stadiumList->displayInOrder();
 }
 
 void MainWindow::on_ListButton_clicked()
@@ -99,3 +100,9 @@ void MainWindow::on_TripsButton_clicked()
     tripWindow.exec();
 }
 
+void MainWindow::on_AdminButton_clicked()
+{
+    AdminLogin = new adminLogin(this);
+    AdminLogin->setModal(true);
+    AdminLogin->show();
+}

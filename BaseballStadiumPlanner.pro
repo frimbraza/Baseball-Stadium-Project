@@ -17,15 +17,18 @@ SOURCES += main.cpp\
     date.cpp \
     stadiuminfo.cpp \
     listwindow.cpp \
-    tripwindow.cpp
+    tripwindow.cpp \
+    adminlogin.cpp
 
 HEADERS  += mainwindow.h \
     binarytree.h \
     stadiuminfo.h \
     date.h \
     listwindow.h \
-    tripwindow.h
+    tripwindow.h \
+    adminlogin.h
 
 FORMS    += mainwindow.ui \
     listwindow.ui \
-    tripwindow.ui
+    tripwindow.ui \
+    adminlogin.ui

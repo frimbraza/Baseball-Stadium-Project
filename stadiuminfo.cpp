@@ -95,7 +95,20 @@ bool StadiumInfo::isNL()
     return NL;
 }
 
-void StadiumInfo::operator=(const StadiumInfo& other)
+ostream& operator<<(ostream& out, StadiumInfo& stadium)
+{
+    out << stadium.name << "\n" << stadium.team << "\n" << stadium.street << "\n"
+        << stadium.cityInfo << "\n" <<stadium.phoneNumber << "\n" << stadium.opened << "\n"
+        << stadium.capacity << "\n";
+    if (stadium.NL)
+        out << "NL\n";
+    else
+        out << "AL\n";
+
+    return out;
+}
+
+void StadiumInfo::operator=(StadiumInfo other)
 {
     name = other.name;
     team = other.team;
@@ -103,21 +116,10 @@ void StadiumInfo::operator=(const StadiumInfo& other)
     cityInfo = other.cityInfo;
     phoneNumber = other.phoneNumber;
     capacity = other.capacity;
-
     opened = other.opened;
     grass = other.grass;
     NL = other.NL;
 }
-
-ostream& operator<<(ostream& out, StadiumInfo& stadium)
-{
-    out << stadium.name << "\n" << stadium.team << "\n" << stadium.street << "\n"
-        << stadium.cityInfo << "\n" <<stadium.phoneNumber << "\n" << stadium.opened << "\n"
-        << stadium.capacity;
-
-    return out;
-}
-
 
 
 

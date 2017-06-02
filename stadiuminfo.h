@@ -45,10 +45,9 @@ public:
     bool hasGrass();
     bool isNL();
 
-    void operator=(const StadiumInfo& other);
-
     friend ostream& operator<<(ostream& out, StadiumInfo& stadium);
 
+    void operator=(StadiumInfo other);
 };
 
 
