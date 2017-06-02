@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    stadiumList = new BinaryTree<StadiumInfo,StadiumComparebyTeam>();
     readFromFile();
 }
 
@@ -27,7 +28,7 @@ void MainWindow::readFromFile()
         exit(1);
     }
 
-    string name, team,street,cityInfo,phoneNum,capacity,openedDate,NL;
+    string name, team,street,cityInfo,phoneNum,capacity,openedDate,NL,grass;
     StadiumInfo stadium;
 
     while(!inFile.eof())
@@ -40,6 +41,7 @@ void MainWindow::readFromFile()
         std::getline(inFile,openedDate,'\n');
         std::getline(inFile,capacity,'\n');
         std::getline(inFile,NL,'\n');
+        std::getline(inFile,grass,'\n');
 
         // Putting here to test. Remove the code after this comment
         stadInfoString += name + "\n" + team + "\n" + street +"\n";
@@ -55,12 +57,18 @@ void MainWindow::readFromFile()
         Date date;
         date.converToDate(openedDate);
 
-
+        // cout << "Date:" << date << endl; // COUT the date, for testing
         bool isNL;
         if(NL == "NL")
             isNL = true;
         else
             isNL = false;
+
+        // grass string to bool
+        if(grass == "grass")
+            stadium.setHasGrass(true);
+        else
+            stadium.setHasGrass(false);
 
         stadium.setName(name);
         stadium.setTeam(team);
@@ -71,13 +79,14 @@ void MainWindow::readFromFile()
         stadium.setOpened(date);
         stadium.setIsNL(isNL);
 
-        // list->insertNode(stadium);
-        cout << stadium << endl; // Add this to COUT stadium info for testing
+        stadiumList->insertNode(stadium);
+        //list->insertNode(stadium);
+        // cout << stadium << endl; // Add this to COUT stadium info for testing
     }
 
     inFile.close();
 
-
+    stadiumList->displayInOrder();  // This is where the output is coming from. Take out later
 }
 
 void MainWindow::on_ListButton_clicked()
@@ -87,6 +96,19 @@ void MainWindow::on_ListButton_clicked()
     //listWindow.exec();
     listWindow = new ListWindow(this);
     listWindow->setAllStadiumsString(stadInfoString);
+
+    vector<StadiumInfo> inOrderList;
+    stadiumList->inOrderItemList(inOrderList);
+    listWindow->setSortedStadiumList(inOrderList);          // Set sorted List
+
+    BinaryTree<StadiumInfo,CompareByDate> chronoTree;
+    for(int i = 0; i < inOrderList.size();++i)
+        chronoTree.insertNode(inOrderList[i]);
+    vector<StadiumInfo> chronoList;                         // Create chronological vector
+    chronoTree.inOrderItemList(chronoList);
+    listWindow->setChronoList(chronoList);
+
+
     listWindow->setModal(true);
     listWindow->show();
 }
@@ -98,3 +120,9 @@ void MainWindow::on_TripsButton_clicked()
     tripWindow.exec();
 }
 
+void MainWindow::on_AdminButton_clicked()
+{
+    AdminLogin = new adminLogin(this);
+    AdminLogin->setModal(true);
+    AdminLogin->show();
+}

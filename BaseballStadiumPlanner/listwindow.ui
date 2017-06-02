@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>899</width>
-    <height>456</height>
+    <width>1144</width>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -78,17 +78,105 @@
     <string>List Stadiums Chronologically</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="listDisplayBox">
+  <widget class="QTableWidget" name="TableWidget">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>30</y>
-     <width>551</width>
-     <height>361</height>
+     <x>340</x>
+     <y>20</y>
+     <width>781</width>
+     <height>551</height>
     </rect>
    </property>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>listAmLeagueStadiums</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printAL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>209</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>95</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listAllStadiums</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>278</x>
+     <y>43</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>listNLStadiums</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printNL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>172</x>
+     <y>145</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListGrassStadiums</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printGrass()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>193</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>278</x>
+     <y>191</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListChronologicalStadium</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printChrono()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>241</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>printAL()</slot>
+  <slot>printNL()</slot>
+  <slot>printAll()</slot>
+  <slot>printGrass()</slot>
+  <slot>printChrono()</slot>
+ </slots>
 </ui>
