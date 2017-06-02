@@ -13,6 +13,16 @@ ListWindow::~ListWindow()
     delete ui;
 }
 
+void ListWindow::setSortedStadiumList(const vector<StadiumInfo>& otherList)
+{
+    this->sortedList = otherList;
+}
+
+void ListWindow::setChronoList(const vector<StadiumInfo> &otherList)
+{
+    this->chronoList = otherList;
+}
+
 void ListWindow::setAllStadiumsString(std::string input)
 {
     AllStadInfo = input;
@@ -45,14 +55,14 @@ void ListWindow::on_ListChronologicalStadium_clicked()
     //ui->listDisplayBox->setText("List the stadiums chronolocially.");
 }
 
-void ListWindow::appendStadium(int index)
+void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount()+1);
     int n = ui->TableWidget->rowCount()-1;
 
-    ui->TableWidget->setItem(n,0,new QTableWidgetItem(QString::fromStdString("//Standium Name at index")));
-    ui->TableWidget->setItem(n,1,new QTableWidgetItem(QString::fromStdString("//Team Name at index")));
-    ui->TableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString("//address")));
+    ui->TableWidget->setItem(n,0,new QTableWidgetItem(QString::fromStdString(theList[index].getName())));
+    ui->TableWidget->setItem(n,1,new QTableWidgetItem(QString::fromStdString(theList[index].getTeam())));
+    ui->TableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString(theList[index].getCityInfo())));
 }
 
 void ListWindow::printAL()
@@ -63,24 +73,83 @@ void ListWindow::printAL()
      std::string labels = "Stadium, Team, Adress";
      ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
 
-     ui->TableWidget->setRowCount(1);
+     ui->TableWidget->setRowCount(0);
 
-     ui->TableWidget->setItem(0,0,new QTableWidgetItem(QString::fromStdString("Staples Center")));
-     ui->TableWidget->setItem(0,1,new QTableWidgetItem(QString::fromStdString("LA Lakers")));
-     ui->TableWidget->setItem(0,2,new QTableWidgetItem(QString::fromStdString("Los Angeles")));
+     for(int i = 0; i < sortedList.size();++i)
+     {
+         if(!sortedList[i].isNL())
+         {
+             appendStadium(i, sortedList);
+         }
+     }
+}
 
-     ui->TableWidget->setRowCount(ui->TableWidget->rowCount()+1);
+void ListWindow::printAll()
+{
+    ui->TableWidget->setColumnCount(3);
+    ui->TableWidget->setColumnWidth(1,150);
 
+    std::string labels = "Stadium, Team, Adress";
+    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
 
-     ui->TableWidget->setItem(1,0,new QTableWidgetItem(QString::fromStdString("Staples Center")));
-     ui->TableWidget->setItem(1,1,new QTableWidgetItem(QString::fromStdString("LA Lakers")));
-     ui->TableWidget->setItem(1,2,new QTableWidgetItem(QString::fromStdString("Los Angeles")));
+    ui->TableWidget->setRowCount(0);
 
-//     for(int i = 0; i < btree.getSize();i++)
-//     {
-//         if(!stad.isNL())
-//         {
-//             appendStadium(i);
-//         }
-//     }
+    for(int i = 0; i < sortedList.size();++i)
+    {
+        appendStadium(i, sortedList);
+    }
+}
+
+void ListWindow::printNL()
+{
+    ui->TableWidget->setColumnCount(3);
+    ui->TableWidget->setColumnWidth(1,150);
+
+    std::string labels = "Stadium, Team, Adress";
+    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
+
+    ui->TableWidget->setRowCount(0);
+
+    for(int i = 0; i < sortedList.size();++i)
+    {
+        if(sortedList[i].isNL())
+        {
+            appendStadium(i, sortedList);
+        }
+    }
+}
+
+void ListWindow::printGrass()
+{
+    ui->TableWidget->setColumnCount(3);
+    ui->TableWidget->setColumnWidth(1,150);
+
+    std::string labels = "Stadium, Team, Adress";
+    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
+
+    ui->TableWidget->setRowCount(0);
+
+    for(int i = 0; i < sortedList.size();++i)
+    {
+        if(sortedList[i].hasGrass())
+        {
+            appendStadium(i,sortedList);
+        }
+    }
+}
+
+void ListWindow::printChrono()
+{
+    ui->TableWidget->setColumnCount(3);
+    ui->TableWidget->setColumnWidth(1,150);
+
+    std::string labels = "Stadium, Team, Adress";
+    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
+
+    ui->TableWidget->setRowCount(0);
+
+    for(int i = 0; i < chronoList.size();++i)
+    {
+        appendStadium(i, chronoList);
+    }
 }

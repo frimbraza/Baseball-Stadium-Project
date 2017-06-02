@@ -70,10 +70,10 @@ inline void BinaryTree<E, C>::operator=(const BinaryTree<E, C> & other)
 }
 
 template<typename E, typename C>
-void BinaryTree<E, C>::insertNode(E num) {
+void BinaryTree<E, C>::insertNode(E item) {
     TreeNode<E>* newNode = new TreeNode<E>;
 
-    newNode->value = num;
+    newNode->value = item;
     newNode->left = newNode->right = NULL;
 
     //Insert the Node
@@ -253,9 +253,9 @@ template<typename E, typename C>
 inline void BinaryTree<E,C>::inOrderItemList(vector<E>& itemList,TreeNode<E>* nodePtr)
 {
     if (nodePtr) {
-        inOrderItemList(nodePtr->left);
+        inOrderItemList(itemList,nodePtr->left);
         itemList.push_back(nodePtr->value);
-        inOrderItemList(nodePtr->right);
+        inOrderItemList(itemList,nodePtr->right);
     }
 }
 

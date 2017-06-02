@@ -1,27 +1,30 @@
 #include "date.h"
 
-Date Date::converToDate(string str)
+void Date::converToDate(string str)
 {
     string strWords[3];
     short counter = 0;
     for(unsigned long i=0;i<str.length();i++){
-        strWords[counter] = str[i];
         if(str[i] == ' '){
             counter++;
         }
-    }
+        else if(str[i] == ',')
+        {
+            // do nothing
+        }
+        else
+        {
+            strWords[counter] += str[i];
+        }
 
-    Date date;
+    }
 
     stringstream day_s_str(strWords[1]);
     stringstream year_s_str(strWords[2]);
-    date.monthName = strWords[0];
-    day_s_str >> date.day;
-    year_s_str >> date.year;
-    date.month = date.number(monthName);
-
-    return date;
-
+    monthName = strWords[0];
+    day_s_str >> day;
+    year_s_str >> year;
+    month = number(monthName);
 }
 
 ostream& operator<<(ostream& out, Date& date)

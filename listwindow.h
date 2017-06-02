@@ -19,11 +19,18 @@ public:
     explicit ListWindow(QWidget *parent = 0);
     ~ListWindow();
 
+    void setSortedStadiumList(const vector<StadiumInfo>& sortedList);
+    void setChronoList(const vector<StadiumInfo>& otherList);
     void setAllStadiumsString(std::string input);
-    void appendStadium(int);
+
+    void appendStadium(int index, vector<StadiumInfo> theList);
 
 public slots:
     void printAL();
+    void printAll();
+    void printNL();
+    void printGrass();
+    void printChrono();
 
 private slots:
     void on_listAllStadiums_clicked();
@@ -44,7 +51,9 @@ private:
     std::string grassStadInfo;
 
     // btree;
-    StadiumInfo stad;
+    // StadiumInfo stad;
+    vector<StadiumInfo> sortedList;
+    vector<StadiumInfo> chronoList;
 };
 
 #endif // LISTWINDOW_H

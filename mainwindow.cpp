@@ -79,7 +79,7 @@ void MainWindow::readFromFile()
 
     inFile.close();
 
-    stadiumList->displayInOrder();
+    stadiumList->displayInOrder();  // This is where the output is coming from. Take out later
 }
 
 void MainWindow::on_ListButton_clicked()
@@ -89,6 +89,19 @@ void MainWindow::on_ListButton_clicked()
     //listWindow.exec();
     listWindow = new ListWindow(this);
     listWindow->setAllStadiumsString(stadInfoString);
+
+    vector<StadiumInfo> inOrderList;
+    stadiumList->inOrderItemList(inOrderList);
+    listWindow->setSortedStadiumList(inOrderList);          // Set sorted List
+
+    BinaryTree<StadiumInfo,CompareByDate> chronoTree;
+    for(int i = 0; i < inOrderList.size();++i)
+        chronoTree.insertNode(inOrderList[i]);
+    vector<StadiumInfo> chronoList;                         // Create chronological vector
+    chronoTree.inOrderItemList(chronoList);
+    listWindow->setChronoList(chronoList);
+
+
     listWindow->setModal(true);
     listWindow->show();
 }

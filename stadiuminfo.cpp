@@ -1,8 +1,16 @@
 #include "stadiuminfo.h"
 
 StadiumInfo::StadiumInfo()
+    :opened()
 {
-
+    name = "NoName";
+    team = "NoTeam";
+    street = "NoStreet";
+    cityInfo = "NoCity";
+    phoneNumber = "NoNumber";
+    capacity = 0;
+    grass = false;
+    NL = false;
 }
 
 void StadiumInfo::setName(string newName)
