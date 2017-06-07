@@ -41,7 +41,7 @@ public:
     string getCityInfo();
     string getPhone();
     int getCapacity();
-    string getOpened();
+    Date getOpened();
     bool hasGrass();
     bool isNL();
 

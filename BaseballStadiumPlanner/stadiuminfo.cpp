@@ -88,9 +88,9 @@ int StadiumInfo::getCapacity()
     return capacity;
 }
 
-string StadiumInfo::getOpened()
+Date StadiumInfo::getOpened()
 {
-    return opened.getStringDate();
+    return opened;
 }
 
 bool StadiumInfo::hasGrass()

@@ -63,7 +63,7 @@ void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
     ui->TableWidget->setItem(n,0,new QTableWidgetItem(QString::fromStdString(theList[index].getName())));
     ui->TableWidget->setItem(n,1,new QTableWidgetItem(QString::fromStdString(theList[index].getTeam())));
     ui->TableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString(theList[index].getCityInfo())));
-    ui->TableWidget->setItem(n,3,new QTableWidgetItem(QString::fromStdString(theList[index].getOpened())));
+    ui->TableWidget->setItem(n,3,new QTableWidgetItem(QString::fromStdString(theList[index].getOpened().getStringDate())));
     if(theList[index].hasGrass())
         ui->TableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("grass")));
     else

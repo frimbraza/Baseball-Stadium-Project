@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\date.o
+./release\stadiuminfo.o
+./release\listwindow.o
+./release\tripwindow.o
+./release\adminlogin.o
+./release\moc_mainwindow.o
+./release\moc_listwindow.o
+./release\moc_tripwindow.o
+./release\moc_adminlogin.o
+);

@@ -47,28 +47,54 @@ ostream& operator<<(ostream& out, Date& date)
 }
 
 
-bool Date::operator < (const Date& date) const
+bool Date::operator < (const Date& other) const
 {
-    if(year < date.year)
-        return true;
-    else if(year == date.year && month < date.month)
-        return true;
-    else if(year == date.year && month == date.month && day < date.day)
-        return true;
+      if(year > other.year)
+         return false;
+      else if( year < other.year)
+          return true;
+      else if(month > other.month)
+          return false;
+      else if(month < other.month)
+          return true;
+      else if(day > other.day)
+          return false;
+      else
+          return true;
 
-    return false;
+//    if(year < date.year)
+//        return true;
+//    else if(year == date.year && month < date.month)
+//        return true;
+//    else if(year == date.year && month == date.month && day < date.day)
+//        return true;
+
+//    return false;
 }
 
-bool Date::operator > (const Date& date) const
+bool Date::operator > (const Date& other) const
 {
-    if(year > date.year)
+    if(year > other.year)
+       return true;
+    else if( year < other.year)
+        return false;
+    else if(month > other.month)
         return true;
-    else if(year == date.year && month > date.month)
+    else if(month < other.month)
+        return false;
+    else if(day > other.day)
         return true;
-    else if(year == date.year && month == date.month && day > date.day)
-        return true;
+    else
+        return false;
 
-    return false;
+//    if(year > date.year)
+//        return true;
+//    else if(year == date.year && month > date.month)
+//        return true;
+//    else if(year == date.year && month == date.month && day > date.day)
+//        return true;
+
+//    return false;
 
 }
 
