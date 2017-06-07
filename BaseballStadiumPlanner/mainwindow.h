@@ -4,15 +4,14 @@
 #include <QMainWindow>
 #include "listwindow.h"
 #include "adminlogin.h"
-
 #include "adminfuntion.h"
-
 
 #include <fstream>
 #include <iostream>
 #include <string>
 #include "binarytree.h"
 #include "stadiuminfo.h"
+#include "souvenir.h"
 #include "date.h"
 
 struct StadiumComparebyTeam
@@ -47,20 +46,6 @@ struct CompareByDate
     }
 };
 
-struct Souvenir
-{
-public:
-    Souvenir():name(""),price(0){}
-    Souvenir (string n, double p):name(n),price(p){}
-    void setName(string n){name = n;}
-    void setPrice(double p){price = p;}
-    string getName(){return name;}
-    double getPrice(){return price;}
-
-private:
-    string name;
-    double price;
-};
 
 namespace Ui {
 class MainWindow;
@@ -92,6 +77,8 @@ private slots:
 
     void on_AdminButton_clicked();
 
+    void on_UpdateButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWindow* listWindow;
@@ -106,10 +93,8 @@ private:
     vector<int> shortStadiums;
     vector<int> shortALStadiums;
     vector<int> shortNLStadiums;
-
     
     vector<Souvenir> souvenirList;
-
 
 
 };

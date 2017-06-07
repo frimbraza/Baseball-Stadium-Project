@@ -6,10 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-
     <width>291</width>
     <height>169</height>
-
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,10 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-
      <x>80</x>
      <y>10</y>
-
      <width>141</width>
      <height>31</height>
     </rect>
@@ -33,7 +29,6 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -107,7 +102,6 @@
      </widget>
     </item>
    </layout>
-
   </widget>
  </widget>
  <resources/>

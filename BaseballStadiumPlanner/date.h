@@ -22,7 +22,7 @@ public:
     void printNumeric() const;
     void printAlpha() const;
     void converToDate(string s);
-    bool operator < (const Date&) const;
+    bool operator < (const Date&other) const;
     bool operator > (const Date&) const;
     string getStringDate();
     friend ostream& operator<<(ostream& out, Date& date);

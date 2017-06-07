@@ -120,10 +120,8 @@ void MainWindow::readFromFile()
 
     inFile.close();
 
-
     // This is where the output is coming from. Take out later
     stadiumList->displayInOrder();
-
 }
 void MainWindow::on_ListButton_clicked()
 {
@@ -161,4 +159,121 @@ void MainWindow::on_AdminButton_clicked()
     AdminLogin = new adminLogin(this);
     AdminLogin->setModal(true);
     AdminLogin->show();
+
+
+
+}
+
+
+void MainWindow::on_UpdateButton_clicked()
+{
+    delete stadiumList;
+    stadiumList = new BinaryTree<StadiumInfo,StadiumComparebyTeam>();
+
+    ifstream inFile;
+
+    inFile.open("NewStadium.txt");
+    if (inFile.fail())
+    {
+        cout<<"Input NewStadium.txt opening failed.\n";
+        exit(1);
+    }
+
+    string stadiumName,team,street,cityInfo,phoneNum,capacity,openedDate,NL,grass;
+    StadiumInfo stadium;
+
+    while(!inFile.eof())
+    {
+        std::getline(inFile,stadiumName,'\n');
+        std::getline(inFile,team,'\n');
+        std::getline(inFile,street,'\n');
+        std::getline(inFile,cityInfo,'\n');
+        std::getline(inFile,phoneNum,'\n');
+        std::getline(inFile,openedDate,'\n');
+        std::getline(inFile,capacity,'\n');
+        std::getline(inFile,NL,'\n');
+        std::getline(inFile,grass,'\n');
+
+        // Putting here to test. Remove the code after this comment
+        stadInfoString += stadiumName + "\n" + team + "\n" + street +"\n";
+        stadInfoString += cityInfo + "\n" + phoneNum + "\n" + openedDate +"\n";
+        stadInfoString += capacity + "\n" + NL + "\n\n";
+        // End of test, please remove the code between these comments
+
+        stringstream cap_s_str(capacity);
+        // int cap = stoi(capacity);
+        int cap;
+        cap_s_str >> cap;
+
+        Date date;
+        date.converToDate(openedDate);
+
+        // cout << "Date:" << date << endl; // COUT the date, for testing
+        bool isNL;
+        if(NL == "NL")
+            isNL = true;
+        else
+            isNL = false;
+
+        // grass string to bool
+        if(grass == "grass")
+            stadium.setHasGrass(true);
+        else
+            stadium.setHasGrass(false);
+
+        stadium.setName(stadiumName);
+        stadium.setTeam(team);
+        stadium.setStreet(street);
+        stadium.setCityInfo(cityInfo);
+        stadium.setPhone(phoneNum);
+        stadium.setCap(cap);
+        stadium.setOpened(date);
+        stadium.setIsNL(isNL);
+
+        stadiumList->insertNode(stadium);
+        //list->insertNode(stadium);
+        // cout << stadium << endl; // Add this to COUT stadium info for testing
+    }
+
+    inFile.close();
+
+
+
+
+
+
+
+    souvenirList.clear();
+
+    inFile.open("NewSouvnier.txt");
+    if (inFile.fail())
+    {
+        cout<<"Input NewSouvnier.txt opening failed.\n";
+        exit(1);
+    }
+
+    string name;
+    double price;
+    Souvenir sv;
+
+    while(!inFile.eof())
+    {
+        std::getline(inFile,name,'\n');
+        inFile >> price;
+        inFile.ignore(100,'\n');
+
+        sv.setName(name);
+        sv.setPrice(price);
+
+        souvenirList.push_back(sv);
+    }
+
+    inFile.close();
+
+
+
+
+
+
+
 }

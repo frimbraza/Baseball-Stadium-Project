@@ -1,9 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-
-** Created by: Qt User Interface Compiler version 5.6.2
-
+** Created by: Qt User Interface Compiler version 5.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -34,6 +32,7 @@ public:
     QPushButton *TripsButton;
     QPushButton *AdminButton;
     QLabel *Title;
+    QPushButton *UpdateButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -58,10 +57,13 @@ public:
         Title->setObjectName(QStringLiteral("Title"));
         Title->setGeometry(QRect(150, 50, 191, 51));
         Title->setScaledContents(false);
+        UpdateButton = new QPushButton(centralWidget);
+        UpdateButton->setObjectName(QStringLiteral("UpdateButton"));
+        UpdateButton->setGeometry(QRect(410, 160, 211, 141));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 994, 26));
+        menuBar->setGeometry(QRect(0, 0, 994, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -82,6 +84,7 @@ public:
         TripsButton->setText(QApplication::translate("MainWindow", "Pick a Trip", 0));
         AdminButton->setText(QApplication::translate("MainWindow", "Admin Functions", 0));
         Title->setText(QApplication::translate("MainWindow", "The Ultimate Baseball Planner", 0));
+        UpdateButton->setText(QApplication::translate("MainWindow", "Update", 0));
     } // retranslateUi
 
 };

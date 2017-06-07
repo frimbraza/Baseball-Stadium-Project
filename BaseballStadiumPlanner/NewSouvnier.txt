@@ -6,5 +6,5 @@ Team pennant
 12.990000
 Autographed baseball
 19.990000
-Bobblehead
-20.000000
+Annie
+120.000000

@@ -9,6 +9,7 @@
 
 #include "binarytree.h"
 #include "stadiuminfo.h"
+#include "souvenir.h"
 #include "date.h"
 
 
@@ -22,21 +23,6 @@ struct StadiumComparebyTeamName
         else
             return false;
     }
-};
-struct SouvenirStruct
-{
-public:
-    SouvenirStruct():name(""),price(0){}
-    SouvenirStruct (string n, double p):name(n),price(p){}
-    void setName(string n){name = n;}
-    void setPrice(double p){price = p;}
-    string getName(){return name;}
-    string getPrice(){return to_string(price);}
-
-
-private:
-    string name;
-    double price;
 };
 
 
@@ -57,7 +43,7 @@ public:
     void saveAtNewStadiumFile();
 
 
-    void appendSouvenir(int index, vector<SouvenirStruct> theList);
+    void appendSouvenir(int index, vector<Souvenir> theList);
     void appendStadium(int index, vector<StadiumInfo> theList);
 
     void setSortedStadiumList(const vector<StadiumInfo>& sortedList);
@@ -84,7 +70,7 @@ private:
     Ui::adminFuntion *ui;
     BinaryTree<StadiumInfo, StadiumComparebyTeamName>* stadiumList;
 
-    vector<SouvenirStruct> souvenirList;
+    vector<Souvenir> souvenirList;
     vector<StadiumInfo> sortedList;
 
     void initializeSouvenirTableInfo();

@@ -3,17 +3,17 @@ Arizona Diamondbacks
 401 East Jefferson Street
 Phoenix, AZ 85004
 (602) 462-6500
-48633
 March 31, 1998
+48633
 NL
 grass
 Turner Field 
-Boston Red Sox
+Atlanta Braves
 755 Hank Aaron Drive
 Atlanta, GA 30315
 (404) 522-7630
-49586
 March 29, 1997
+49586
 NL
 grass
 Oriole Park at Camden Yards
@@ -21,8 +21,8 @@ Baltimore Orioles
 333 West Camden Street
 Baltimore, MD 21201
 (410) 685-9800
-48187
 April 6, 1992
+48187
 AL
 grass
 Fenway Park
@@ -30,8 +30,8 @@ Boston Red Sox
 4 Yawkey Way, 
 Boston, MA 02215
 (877) 733-7699 
-37499
 April 20, 1912
+37499
 AL
 grass
 Wrigley Field
@@ -39,8 +39,8 @@ Chicago Cubs
 1060 West Addison Street
 Chicago, IL 60613
 (773) 404-2827
-42374
 April 23, 1914
+42374
 NL
 grass
 US Cellular Field
@@ -48,8 +48,8 @@ Chicago White Sox
 333 West 35th Street
 Chicago, IL 60616
 (312) 674-1000
-40615
 April 18, 1991
+40615
 AL
 grass
 Great America Ball Park
@@ -57,8 +57,8 @@ Cincinnati Reds
 100 Joe Nuxhall Way
 Cincinnati, OH 45202
 (513) 381-7337
-42319
 March 31, 2003
+42319
 NL
 grass
 Progressive Field
@@ -66,8 +66,8 @@ Cleveland Indians
 2401 Ontario Street
 Cleveland, OH 44115
 (216) 420-4487
-42404
 April 2, 1994
+42404
 AL
 grass
 Coors Field
@@ -75,8 +75,8 @@ Colorado Rockies
 2001 Blake St
 Denver, CO 80205
 (303) 292-0200
-50480
 April 26, 1995
+50480
 NL
 grass
 Comerica Park
@@ -84,8 +84,8 @@ Detroit Tigers
 2100 Woodward Ave, 
 Detroit, MI 48201
 (313) 962-4000 
-41681
 April 11, 2000
+41681
 AL
 grass
 Minute Maid Park
@@ -93,8 +93,8 @@ Houston Astros
 501 Crawford St,
 Houston, TX 77002
 (713) 259-8000
-42060
 March 30, 2000
+42060
 AL
 grass
 Kauffman Stadium
@@ -102,17 +102,17 @@ Kansas City Royals
 1 Royal Way
 Kansas City, MO 64129
 (816) 921-8000
-37903
 April 10, 1973
+37903
 AL
 grass
-?Angels Stadium of Anaheim
+Angels Stadium of Anaheim
 Los Angeles Angels of Anaheim
 2000 E Gene Autry Way, 
 Anaheim, CA 92806
 (714)940-2000
-45483
 April 19, 1966
+45483
 AL
 grass
 Dodger Stadium
@@ -120,8 +120,8 @@ Los Angeles Dodgers
 1000 Elysian Park Avenue
 Los Angeles, CA 90090
 (323) 224-1507
-56000
 April 10, 1962
+56000
 NL
 grass
 Marlins Park
@@ -129,8 +129,8 @@ Miami Marlins
 501 Marlins Way
 Miami, FL 33125
 (305)480-1300
-37442
 April 4, 2012
+37442
 NL
 grass
 Miller Park
@@ -138,8 +138,8 @@ Milwaukee Brewers
 1 Brewers Way
 Milwaukee, WI 53214
 (414) 902-4400
-41900
 April 6, 2001
+41900
 NL
 grass
 Target Field
@@ -147,8 +147,8 @@ Minnesota Twins
 353 N 5th St
 Minneapolis, MN 55403
 (800) 338-9467
-39021
 April 12, 2010
+39021
 AL
 grass
 Citi Field
@@ -156,8 +156,8 @@ New York Mets
 126th St. & Roosevelt Ave.
 Queens, NY 11368
 (718) 507-6387
-41922
 April 13, 2009
+41922
 NL
 grass
 Yankee Stadium
@@ -165,8 +165,8 @@ New York Yankees
 1 E 161st St
 South Bronx, NY 10451
 (718) 293-4300
-50291
 April 16, 2009
+50291
 AL
 grass
 O.co Coliseum
@@ -174,8 +174,8 @@ Oakland Athletics
 7000 Coliseum Way
 Oakland, CA 94621
 (510) 569-2121
-37090
 September 18, 1966
+37090
 AL
 grass
 Citizens Bank Park
@@ -183,8 +183,8 @@ Philadelphia Phillies
 1 Citizens Bank Way
 Philadelphia, PA 19148
 (215) 463-1000
-43651
 April 3, 2004
+43651
 NL
 grass
 PNC Park
@@ -192,8 +192,8 @@ Pittsburgh Pirates
 115 Federal St
 Pittsburgh, PA 15212
 (412) 321-2827
-38362
 March 31, 2001
+38362
 NL
 grass
 Petco Park
@@ -201,8 +201,8 @@ San Diego Padres
 19 Tony Gwynn Drive
 San Diego, CA 92101
 (619) 795-5000
-42524
 April 8, 2004
+42524
 NL
 grass
 AT&T Park
@@ -210,8 +210,8 @@ San Francisco Giants
 24 Willie Mays Plaza
 San Francisco, CA 94107
 (415) 972-2000
-41915
 April 11, 2000
+41915
 NL
 grass
 SafeCo Field
@@ -219,8 +219,8 @@ Seattle Mariners
 1516 First Avenue South
 Seattle, WA 98134
 (206) 346-4000
-47476
 July 15, 1999
+47476
 AL
 grass
 Busch Stadium
@@ -228,8 +228,8 @@ St. Louis Cardinals
 700 Clark Street
 St. Louis, MO 63102
 (314) 345-9600
-46861
 April 10, 2006
+46861
 NL
 grass
 Tropicana Field
@@ -237,8 +237,8 @@ Tampa Bay Rays
 1 Tropicana Dr
 St. Petersburg, FL 33705
 (727) 825-3137
-31042
 March 3, 1990
+31042
 AL
 no grass
 Globe Life Park in Arlington
@@ -246,8 +246,8 @@ Texas Rangers
 1000 Ballpark Way,
 Arlington, TX 76011
 (817) 273-5222 
-48114
 April 1, 1994
+48114
 AL
 grass
 Rogers Centre
@@ -255,8 +255,8 @@ Toronto Blue Jays
 1 Blue Jays Way
 Toronto, Ontario, Canada M5V1J3
 +1 416-341-1000
-49282
 June 3, 1989
+49282
 AL
 no grass
 Nationals Park
@@ -264,7 +264,16 @@ Washington Nationals
 1500 S Capitol St SE
 Washington, DC 20003
 (202) 675-6287
-41418
 March 30, 2008
+41418
 NL
 grass
+a
+b
+n
+jh
+j
+January 1, 2017
+123
+AL
+no grass

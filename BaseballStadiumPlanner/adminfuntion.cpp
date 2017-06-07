@@ -111,7 +111,7 @@ void adminFuntion::addSouvenirList()
 
     string name;
     double price;
-    SouvenirStruct sv;
+    Souvenir sv;
 
     while(!inFile.eof())
     {
@@ -168,8 +168,8 @@ void adminFuntion::saveAtNewStadiumFile()
                 << sortedList[i].getStreet() <<endl
                 << sortedList[i].getCityInfo() <<endl
                 << sortedList[i].getPhone() <<endl
-                << sortedList[i].getCapacity() <<endl
-                << sortedList[i].getOpened() <<endl;
+                << sortedList[i].getOpened().getStringDate() <<endl
+                << sortedList[i].getCapacity()<<endl;
 
         if(sortedList[i].isNL())
             outFile << "NL\n";
@@ -177,10 +177,11 @@ void adminFuntion::saveAtNewStadiumFile()
             outFile << "AL\n";
 
         if(sortedList[i].hasGrass())
-            outFile << "grass\n";
+            outFile << "grass";
         else
-            outFile << "no grass\n";
-
+            outFile << "no grass";
+        if(i <sortedList.size()-1)
+            outFile << "\n";
     }
 
 }
@@ -225,7 +226,7 @@ void adminFuntion::printAll()
 
 
 //Append table
-void adminFuntion::appendSouvenir(int index, vector<SouvenirStruct> theList)
+void adminFuntion::appendSouvenir(int index, vector<Souvenir> theList)
 {
     ui->tableWidget->setRowCount(ui->tableWidget->rowCount()+1);
     int n = ui->tableWidget->rowCount()-1;
@@ -245,16 +246,18 @@ void adminFuntion::appendStadium(int index, vector<StadiumInfo> theList)
     ui->tableWidget->setItem(n,0,new QTableWidgetItem(QString::fromStdString(theList[index].getName())));
     ui->tableWidget->setItem(n,1,new QTableWidgetItem(QString::fromStdString(theList[index].getTeam())));
     ui->tableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString(theList[index].getCityInfo())));
-    ui->tableWidget->setItem(n,3,new QTableWidgetItem(QString::fromStdString(theList[index].getOpened())));
+    ui->tableWidget->setItem(n,3,new QTableWidgetItem(QString::fromStdString(theList[index].getOpened().getStringDate())));
+    ui->tableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString(to_string(theList[index].getCapacity()))));
+
     if(theList[index].hasGrass())
-        ui->tableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("grass")));
+        ui->tableWidget->setItem(n,5,new QTableWidgetItem(QString::fromStdString("grass")));
     else
-        ui->tableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("No grass")));
+        ui->tableWidget->setItem(n,5,new QTableWidgetItem(QString::fromStdString("No grass")));
 
     if(theList[index].isNL())
-        ui->tableWidget->setItem(n,5,new QTableWidgetItem(QString::fromStdString("National League")));
+        ui->tableWidget->setItem(n,6,new QTableWidgetItem(QString::fromStdString("National League")));
     else
-        ui->tableWidget->setItem(n,5,new QTableWidgetItem(QString::fromStdString("American League")));
+        ui->tableWidget->setItem(n,6,new QTableWidgetItem(QString::fromStdString("American League")));
 
 }
 
@@ -272,10 +275,10 @@ void adminFuntion::initializeSouvenirTableInfo()
 
 void adminFuntion::initializeStadiumTableInfo()
 {
-    ui->tableWidget->setColumnCount(6);
+    ui->tableWidget->setColumnCount(7);
     ui->tableWidget->setColumnWidth(1,150);
 
-    std::string labels = "Stadium, Team, Address, Date Opened, Grass, Type";
+    std::string labels = "Stadium, Team, Address, Date Opened, Capacity, Grass, Type";
     ui->tableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
 
     ui->tableWidget->setRowCount(0);
@@ -292,7 +295,7 @@ void adminFuntion::on_Add_Souvenir_clicked()
 
     priceNum = stod(price.toStdString());
 
-    SouvenirStruct sv;
+    Souvenir sv;
     sv.setName(name.toStdString());
     sv.setPrice(priceNum);
 
