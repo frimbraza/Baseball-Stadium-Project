@@ -2,6 +2,7 @@
 #define BINARYTREE_H
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -34,6 +35,8 @@ private:
     int getSize(TreeNode<E> *nodePtr) const;
     void copy(TreeNode<E>*& current, const TreeNode<E> *other);
 
+    void inOrderItemList(vector<E>& itemList, TreeNode<E> *nodePtr);
+
 public:
     BinaryTree() { root = NULL; }
     BinaryTree(const BinaryTree& other);
@@ -44,10 +47,13 @@ public:
     E getValue(E);
     E getRootValue();
     void remove(E);
-    // void displayInOrder() const { displayInOrder(root); }
+    void displayInOrder() const { displayInOrder(root); }
     // void displayPreOrder() const { displayPreOrder(root); }
     // void displayPostOrder() const { displayPostOrder(root); }
     int getSize() const { return getSize(root); }
+
+    // Functions added for stadium project 6/1/2017
+    void inOrderItemList(vector<E>& itemList);
 };
 
 template<typename E, typename C>
@@ -64,10 +70,10 @@ inline void BinaryTree<E, C>::operator=(const BinaryTree<E, C> & other)
 }
 
 template<typename E, typename C>
-void BinaryTree<E, C>::insertNode(E num) {
+void BinaryTree<E, C>::insertNode(E item) {
     TreeNode<E>* newNode = new TreeNode<E>;
 
-    newNode->value = num;
+    newNode->value = item;
     newNode->left = newNode->right = NULL;
 
     //Insert the Node
@@ -84,16 +90,16 @@ void BinaryTree<E, C>::insert(TreeNode<E> *&nodePtr, TreeNode<E> *&newNode) {
         insert(nodePtr->right, newNode);
 }
 
-/*
+
 template<typename E, typename C>
 void BinaryTree<E, C>::displayInOrder(TreeNode<E> *nodePtr) const {
     if (nodePtr) {
         displayInOrder(nodePtr->left);
-        cout << nodePtr->value << " ";
+        cout << nodePtr->value << "\n\n";
         displayInOrder(nodePtr->right);
     }
 }
-
+/*
 template<typename E, typename C>
 void BinaryTree<E, C>::displayPreOrder(TreeNode<E> *nodePtr) const {
     if (nodePtr) {
@@ -241,6 +247,22 @@ inline void BinaryTree<E, C>::copy(TreeNode<E>*& current, const TreeNode<E>* oth
         copy(current->right, other->right);
 
     }
+}
+
+template<typename E, typename C>
+inline void BinaryTree<E,C>::inOrderItemList(vector<E>& itemList,TreeNode<E>* nodePtr)
+{
+    if (nodePtr) {
+        inOrderItemList(itemList,nodePtr->left);
+        itemList.push_back(nodePtr->value);
+        inOrderItemList(itemList,nodePtr->right);
+    }
+}
+
+template<typename E, typename C>
+inline void BinaryTree<E,C>::inOrderItemList(vector<E>& itemList)
+{
+    inOrderItemList(itemList, root);
 }
 
 #endif // BINARYTREE_H

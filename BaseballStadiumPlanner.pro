@@ -15,11 +15,20 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     date.cpp \
-    stadiuminfo.cpp
+    stadiuminfo.cpp \
+    listwindow.cpp \
+    tripwindow.cpp \
+    adminlogin.cpp
 
 HEADERS  += mainwindow.h \
     binarytree.h \
     stadiuminfo.h \
-    date.h
+    date.h \
+    listwindow.h \
+    tripwindow.h \
+    adminlogin.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    listwindow.ui \
+    tripwindow.ui \
+    adminlogin.ui

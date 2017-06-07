@@ -47,6 +47,7 @@ public:
 
     friend ostream& operator<<(ostream& out, StadiumInfo& stadium);
 
+    void operator=(StadiumInfo other);
 };
 
 

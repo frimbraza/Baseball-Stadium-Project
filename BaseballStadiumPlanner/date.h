@@ -14,16 +14,18 @@ private:
     string monthName;
 
 public:
-    Date(){}
+    Date() : day(0),month(0),year(0),monthName("january"){}
     Date(unsigned, unsigned, unsigned);
     Date(const string &, unsigned, unsigned);
     Date addDays(int) const;
     void printNumeric() const;
     void printAlpha() const;
-    Date converToDate(string s);
+    void converToDate(string s);
     bool operator < (const Date&) const;
     bool operator > (const Date&) const;
+    string getStringDate();
     friend ostream& operator<<(ostream& out, Date& date);
+
 
 private:
     bool isLeap(unsigned) const;

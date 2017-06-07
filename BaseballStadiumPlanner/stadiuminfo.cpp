@@ -1,8 +1,16 @@
 #include "stadiuminfo.h"
 
 StadiumInfo::StadiumInfo()
+    :opened()
 {
-
+    name = "NoName";
+    team = "NoTeam";
+    street = "NoStreet";
+    cityInfo = "NoCity";
+    phoneNumber = "NoNumber";
+    capacity = 0;
+    grass = false;
+    NL = false;
 }
 
 void StadiumInfo::setName(string newName)
@@ -99,11 +107,30 @@ ostream& operator<<(ostream& out, StadiumInfo& stadium)
 {
     out << stadium.name << "\n" << stadium.team << "\n" << stadium.street << "\n"
         << stadium.cityInfo << "\n" <<stadium.phoneNumber << "\n" << stadium.opened << "\n"
-        << stadium.capacity;
-
+        << stadium.capacity << "\n";
+    if (stadium.NL)
+        out << "NL\n";
+    else
+        out << "AL\n";
+    if (stadium.grass)
+        out << "grass\n";
+    else
+        out << "no grass\n";
     return out;
 }
 
+void StadiumInfo::operator=(StadiumInfo other)
+{
+    name = other.name;
+    team = other.team;
+    street = other.street;
+    cityInfo = other.cityInfo;
+    phoneNumber = other.phoneNumber;
+    capacity = other.capacity;
+    opened = other.opened;
+    grass = other.grass;
+    NL = other.NL;
+}
 
 
 
