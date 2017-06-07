@@ -54,6 +54,8 @@ private:
     // StadiumInfo stad;
     vector<StadiumInfo> sortedList;
     vector<StadiumInfo> chronoList;
+
+    void initializeTableInfo();
 };
 
 #endif // LISTWINDOW_H

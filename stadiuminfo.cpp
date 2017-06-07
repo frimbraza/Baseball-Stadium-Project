@@ -112,7 +112,10 @@ ostream& operator<<(ostream& out, StadiumInfo& stadium)
         out << "NL\n";
     else
         out << "AL\n";
-
+    if (stadium.grass)
+        out << "grass\n";
+    else
+        out << "no grass\n";
     return out;
 }
 

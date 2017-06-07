@@ -23,7 +23,9 @@ public:
     void converToDate(string s);
     bool operator < (const Date&) const;
     bool operator > (const Date&) const;
+    string getStringDate();
     friend ostream& operator<<(ostream& out, Date& date);
+
 
 private:
     bool isLeap(unsigned) const;

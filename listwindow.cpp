@@ -63,36 +63,29 @@ void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
     ui->TableWidget->setItem(n,0,new QTableWidgetItem(QString::fromStdString(theList[index].getName())));
     ui->TableWidget->setItem(n,1,new QTableWidgetItem(QString::fromStdString(theList[index].getTeam())));
     ui->TableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString(theList[index].getCityInfo())));
+    ui->TableWidget->setItem(n,3,new QTableWidgetItem(QString::fromStdString(theList[index].getOpened().getStringDate())));
+    if(theList[index].hasGrass())
+        ui->TableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("grass")));
+    else
+        ui->TableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("No grass")));
 }
 
 void ListWindow::printAL()
 {
-     ui->TableWidget->setColumnCount(3);
-     ui->TableWidget->setColumnWidth(1,150);
+    initializeTableInfo();
 
-     std::string labels = "Stadium, Team, Adress";
-     ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
-
-     ui->TableWidget->setRowCount(0);
-
-     for(int i = 0; i < sortedList.size();++i)
-     {
-         if(!sortedList[i].isNL())
-         {
-             appendStadium(i, sortedList);
-         }
-     }
+    for(int i = 0; i < sortedList.size();++i)
+    {
+        if(!sortedList[i].isNL())
+        {
+            appendStadium(i, sortedList);
+        }
+    }
 }
 
 void ListWindow::printAll()
 {
-    ui->TableWidget->setColumnCount(3);
-    ui->TableWidget->setColumnWidth(1,150);
-
-    std::string labels = "Stadium, Team, Adress";
-    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
-
-    ui->TableWidget->setRowCount(0);
+    initializeTableInfo();
 
     for(int i = 0; i < sortedList.size();++i)
     {
@@ -102,13 +95,7 @@ void ListWindow::printAll()
 
 void ListWindow::printNL()
 {
-    ui->TableWidget->setColumnCount(3);
-    ui->TableWidget->setColumnWidth(1,150);
-
-    std::string labels = "Stadium, Team, Adress";
-    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
-
-    ui->TableWidget->setRowCount(0);
+    initializeTableInfo();
 
     for(int i = 0; i < sortedList.size();++i)
     {
@@ -121,13 +108,7 @@ void ListWindow::printNL()
 
 void ListWindow::printGrass()
 {
-    ui->TableWidget->setColumnCount(3);
-    ui->TableWidget->setColumnWidth(1,150);
-
-    std::string labels = "Stadium, Team, Adress";
-    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
-
-    ui->TableWidget->setRowCount(0);
+    initializeTableInfo();
 
     for(int i = 0; i < sortedList.size();++i)
     {
@@ -140,16 +121,21 @@ void ListWindow::printGrass()
 
 void ListWindow::printChrono()
 {
-    ui->TableWidget->setColumnCount(3);
-    ui->TableWidget->setColumnWidth(1,150);
-
-    std::string labels = "Stadium, Team, Adress";
-    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
-
-    ui->TableWidget->setRowCount(0);
+    initializeTableInfo();
 
     for(int i = 0; i < chronoList.size();++i)
     {
         appendStadium(i, chronoList);
     }
+}
+
+void ListWindow::initializeTableInfo()
+{
+    ui->TableWidget->setColumnCount(5);
+    ui->TableWidget->setColumnWidth(1,150);
+
+    std::string labels = "Stadium, Team, Address, Date Opened, Grass";
+    ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
+
+    ui->TableWidget->setRowCount(0);
 }

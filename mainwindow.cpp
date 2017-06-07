@@ -28,7 +28,7 @@ void MainWindow::readFromFile()
         exit(1);
     }
 
-    string name, team,street,cityInfo,phoneNum,capacity,openedDate,NL;
+    string name, team,street,cityInfo,phoneNum,capacity,openedDate,NL,grass;
     StadiumInfo stadium;
 
     while(!inFile.eof())
@@ -41,6 +41,7 @@ void MainWindow::readFromFile()
         std::getline(inFile,openedDate,'\n');
         std::getline(inFile,capacity,'\n');
         std::getline(inFile,NL,'\n');
+        std::getline(inFile,grass,'\n');
 
         // Putting here to test. Remove the code after this comment
         stadInfoString += name + "\n" + team + "\n" + street +"\n";
@@ -62,6 +63,12 @@ void MainWindow::readFromFile()
             isNL = true;
         else
             isNL = false;
+
+        // grass string to bool
+        if(grass == "grass")
+            stadium.setHasGrass(true);
+        else
+            stadium.setHasGrass(false);
 
         stadium.setName(name);
         stadium.setTeam(team);
