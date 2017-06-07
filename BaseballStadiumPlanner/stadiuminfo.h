@@ -41,12 +41,13 @@ public:
     string getCityInfo();
     string getPhone();
     int getCapacity();
-    Date getOpened();
+    string getOpened();
     bool hasGrass();
     bool isNL();
 
     friend ostream& operator<<(ostream& out, StadiumInfo& stadium);
 
+    void operator=(StadiumInfo other);
 };
 
 

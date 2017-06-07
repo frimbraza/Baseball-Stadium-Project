@@ -1,0 +1,10 @@
+Baseball cap 
+25.990000
+Baseball bat
+35.350000
+Team pennant
+12.990000
+Autographed baseball
+19.990000
+Bobblehead
+20.000000

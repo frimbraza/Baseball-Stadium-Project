@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "listwindow.h"
+#include "adminlogin.h"
+#include "adminfuntion.h"
 
 #include <fstream>
 #include <iostream>
@@ -23,8 +25,36 @@ struct StadiumComparebyTeam
     }
 };
 
+struct CompareByStadiumName
+{
+    bool operator()(StadiumInfo first, StadiumInfo second)
+    {
+        int compareValue = first.getName().compare(second.getName());
+        if(compareValue < 0)
+            return true;
+        else
+            return false;
+    }
+};
+
+struct CompareByDate
+{
+    bool operator()(StadiumInfo first, StadiumInfo second)
+    {
+        return first.getOpened() < second.getOpened();
+    }
+};
+
 struct Souvenir
 {
+public:
+    Souvenir():name(""),price(0){}
+    Souvenir (string n, double p):name(n),price(p){}
+    void setName(string n){name = n;}
+    void setPrice(double p){price = p;}
+    string getName(){return name;}
+    double getPrice(){return price;}
+
 private:
     string name;
     double price;
@@ -46,21 +76,37 @@ public:
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByStadiumName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByDate();
     void readFromFile();
+    void addSouvenirList();
 
     void grassList();
     void alList();
     void nlList();
+
 
 private slots:
     void on_ListButton_clicked();
 
     void on_TripsButton_clicked();
 
+    void on_AdminButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWindow* listWindow;
+    adminLogin* AdminLogin;
+
+
     BinaryTree<StadiumInfo, StadiumComparebyTeam>* stadiumList;
     string stadInfoString;  // Added for testing purposes
+
+    vector<string> stadiumNameList;
+
+    vector<int> shortStadiums;
+    vector<int> shortALStadiums;
+    vector<int> shortNLStadiums;
+    
+    vector<Souvenir> souvenirList;
+
 
 };
 
