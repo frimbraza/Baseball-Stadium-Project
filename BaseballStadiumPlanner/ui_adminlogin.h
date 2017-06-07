@@ -1,7 +1,9 @@
 /********************************************************************************
 ** Form generated from reading UI file 'adminlogin.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+
+** Created by: Qt User Interface Compiler version 5.6.2
+
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,6 +16,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -21,12 +24,14 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
+
 QT_BEGIN_NAMESPACE
 
 class Ui_adminLogin
 {
 public:
     QLabel *label;
+
     QPushButton *pushButton;
     QLabel *label_LoginText;
     QWidget *layoutWidget;
@@ -38,10 +43,12 @@ public:
     QLabel *label_3;
     QLineEdit *LineEdit_Password;
 
+
     void setupUi(QDialog *adminLogin)
     {
         if (adminLogin->objectName().isEmpty())
             adminLogin->setObjectName(QStringLiteral("adminLogin"));
+
         adminLogin->resize(291, 169);
         label = new QLabel(adminLogin);
         label->setObjectName(QStringLiteral("label"));
@@ -96,10 +103,12 @@ public:
     {
         adminLogin->setWindowTitle(QApplication::translate("adminLogin", "Dialog", 0));
         label->setText(QApplication::translate("adminLogin", "Adminstrator Login", 0));
+
         pushButton->setText(QApplication::translate("adminLogin", "Login", 0));
         label_LoginText->setText(QString());
         label_2->setText(QApplication::translate("adminLogin", "Username", 0));
         label_3->setText(QApplication::translate("adminLogin", "Password", 0));
+
     } // retranslateUi
 
 };

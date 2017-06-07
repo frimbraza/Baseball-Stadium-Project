@@ -63,20 +63,11 @@ void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
     ui->TableWidget->setItem(n,0,new QTableWidgetItem(QString::fromStdString(theList[index].getName())));
     ui->TableWidget->setItem(n,1,new QTableWidgetItem(QString::fromStdString(theList[index].getTeam())));
     ui->TableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString(theList[index].getCityInfo())));
-
     ui->TableWidget->setItem(n,3,new QTableWidgetItem(QString::fromStdString(theList[index].getOpened().getStringDate())));
-
     if(theList[index].hasGrass())
         ui->TableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("grass")));
     else
         ui->TableWidget->setItem(n,4,new QTableWidgetItem(QString::fromStdString("No grass")));
-
-
-    if(theList[index].isNL())
-        ui->TableWidget->setItem(n,5,new QTableWidgetItem(QString::fromStdString("National League")));
-    else
-        ui->TableWidget->setItem(n,5,new QTableWidgetItem(QString::fromStdString("American League")));
-
 }
 
 void ListWindow::printAL()
@@ -140,12 +131,10 @@ void ListWindow::printChrono()
 
 void ListWindow::initializeTableInfo()
 {
-
-    ui->TableWidget->setColumnCount(6);
+    ui->TableWidget->setColumnCount(5);
     ui->TableWidget->setColumnWidth(1,150);
 
-    std::string labels = "Stadium, Team, Address, Date Opened, Grass, Type";
-
+    std::string labels = "Stadium, Team, Address, Date Opened, Grass";
     ui->TableWidget->setHorizontalHeaderLabels(QString::fromStdString(labels).split(","));
 
     ui->TableWidget->setRowCount(0);

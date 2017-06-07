@@ -10,45 +10,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     stadiumList = new BinaryTree<StadiumInfo,StadiumComparebyTeam>();
     readFromFile();
-    addSouvenirList();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::addSouvenirList()
-{
-    ifstream inFile;
-
-    inFile.open("Souvnier.txt");
-    if (inFile.fail())
-    {
-        cout<<"Input Souvnier.txt opening failed.\n";
-        exit(1);
-    }
-
-    string name;
-    double price;
-    Souvenir sv;
-
-    while(!inFile.eof())
-    {
-        std::getline(inFile,name,'\n');
-        inFile >> price;
-        inFile.ignore(100,'\n');
-
-        sv.setName(name);
-        sv.setPrice(price);
-
-        souvenirList.push_back(sv);
-    }
-
-    inFile.close();
-
-
-
 }
 
 void MainWindow::readFromFile()
@@ -58,7 +24,7 @@ void MainWindow::readFromFile()
     inFile.open("Stadium.txt");
     if (inFile.fail())
     {
-        cout<<"Input Stadium.txt opening failed.\n";
+        cout<<"Input file opening failed.\n";
         exit(1);
     }
 
@@ -120,11 +86,9 @@ void MainWindow::readFromFile()
 
     inFile.close();
 
-
-    // This is where the output is coming from. Take out later
-    stadiumList->displayInOrder();
-
+    stadiumList->displayInOrder();  // This is where the output is coming from. Take out later
 }
+
 void MainWindow::on_ListButton_clicked()
 {
     //ListWindow listWindow;

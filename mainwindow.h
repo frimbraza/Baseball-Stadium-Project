@@ -5,9 +5,6 @@
 #include "listwindow.h"
 #include "adminlogin.h"
 
-#include "adminfuntion.h"
-
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -49,14 +46,6 @@ struct CompareByDate
 
 struct Souvenir
 {
-public:
-    Souvenir():name(""),price(0){}
-    Souvenir (string n, double p):name(n),price(p){}
-    void setName(string n){name = n;}
-    void setPrice(double p){price = p;}
-    string getName(){return name;}
-    double getPrice(){return price;}
-
 private:
     string name;
     double price;
@@ -78,11 +67,11 @@ public:
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByStadiumName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByDate();
     void readFromFile();
-    void addSouvenirList();
 
     void grassList();
     void alList();
     void nlList();
+
 
 
 private slots:
@@ -97,7 +86,6 @@ private:
     ListWindow* listWindow;
     adminLogin* AdminLogin;
 
-
     BinaryTree<StadiumInfo, StadiumComparebyTeam>* stadiumList;
     string stadInfoString;  // Added for testing purposes
 
@@ -106,10 +94,6 @@ private:
     vector<int> shortStadiums;
     vector<int> shortALStadiums;
     vector<int> shortNLStadiums;
-
-    
-    vector<Souvenir> souvenirList;
-
 
 
 };
