@@ -1,3 +1,12 @@
+/*
+* Main window class file
+* 
+* returns executable
+* 
+* main class file
+*
+*/
+
 #include "mainwindow.h"
 #include <QApplication>
 
