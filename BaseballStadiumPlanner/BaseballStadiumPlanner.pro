@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     stadiuminfo.cpp \
     listwindow.cpp \
     tripwindow.cpp \
-    adminlogin.cpp
+    adminlogin.cpp \
+    adminfuntion.cpp
 
 HEADERS  += mainwindow.h \
     binarytree.h \
@@ -26,9 +27,14 @@ HEADERS  += mainwindow.h \
     date.h \
     listwindow.h \
     tripwindow.h \
-    adminlogin.h
+    adminlogin.h \
+    adminfuntion.h \
+    souvenir.h
 
 FORMS    += mainwindow.ui \
     listwindow.ui \
     tripwindow.ui \
-    adminlogin.ui
+    adminlogin.ui \
+    adminfuntion.ui
+
+CONFIG += c++11

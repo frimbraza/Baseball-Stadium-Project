@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>409</height>
+    <width>897</width>
+    <height>615</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,17 +52,122 @@
     <string>Design a trip to NL Stadiums</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="customTripButton">
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>280</y>
+     <width>401</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Design Your Own Trip</string>
+   </property>
+   <widget class="QPushButton" name="addToTripButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>20</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add to Trip</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="resetListButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>70</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset List</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>221</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="printCustomButton">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>120</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Print Custom</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QTableWidget" name="TableWidget">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>20</y>
+     <width>471</width>
+     <height>231</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>210</y>
-     <width>231</width>
-     <height>41</height>
+     <y>310</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addSouvButton">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>310</y>
+     <width>93</width>
+     <height>28</height>
     </rect>
    </property>
    <property name="text">
-    <string>Design your own trip</string>
+    <string>Add Souvenir</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="totalPriceBrowser">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>350</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="totalLabel">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>380</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Total Price</string>
    </property>
   </widget>
  </widget>

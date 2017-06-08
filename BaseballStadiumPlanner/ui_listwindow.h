@@ -29,6 +29,7 @@ public:
     QPushButton *ListGrassStadiums;
     QPushButton *ListChronologicalStadium;
     QTableWidget *TableWidget;
+    QPushButton *allStadiumByStadiumName;
 
     void setupUi(QDialog *ListWindow)
     {
@@ -53,6 +54,9 @@ public:
         TableWidget = new QTableWidget(ListWindow);
         TableWidget->setObjectName(QStringLiteral("TableWidget"));
         TableWidget->setGeometry(QRect(340, 20, 781, 551));
+        allStadiumByStadiumName = new QPushButton(ListWindow);
+        allStadiumByStadiumName->setObjectName(QStringLiteral("allStadiumByStadiumName"));
+        allStadiumByStadiumName->setGeometry(QRect(40, 290, 191, 31));
 
         retranslateUi(ListWindow);
         QObject::connect(listAmLeagueStadiums, SIGNAL(clicked()), ListWindow, SLOT(printAL()));
@@ -60,6 +64,7 @@ public:
         QObject::connect(listNLStadiums, SIGNAL(clicked()), ListWindow, SLOT(printNL()));
         QObject::connect(ListGrassStadiums, SIGNAL(clicked()), ListWindow, SLOT(printGrass()));
         QObject::connect(ListChronologicalStadium, SIGNAL(clicked()), ListWindow, SLOT(printChrono()));
+        QObject::connect(allStadiumByStadiumName, SIGNAL(clicked()), ListWindow, SLOT(printByStadiumName()));
 
         QMetaObject::connectSlotsByName(ListWindow);
     } // setupUi
@@ -67,11 +72,12 @@ public:
     void retranslateUi(QDialog *ListWindow)
     {
         ListWindow->setWindowTitle(QApplication::translate("ListWindow", "Dialog", 0));
-        listAllStadiums->setText(QApplication::translate("ListWindow", "List of All Stadiums", 0));
+        listAllStadiums->setText(QApplication::translate("ListWindow", "All Stadiums by Team Name", 0));
         listAmLeagueStadiums->setText(QApplication::translate("ListWindow", "List of AL Staidiums", 0));
         listNLStadiums->setText(QApplication::translate("ListWindow", "List of NL Stadiums", 0));
         ListGrassStadiums->setText(QApplication::translate("ListWindow", "List of Stadiums with grass", 0));
         ListChronologicalStadium->setText(QApplication::translate("ListWindow", "List Stadiums Chronologically", 0));
+        allStadiumByStadiumName->setText(QApplication::translate("ListWindow", "All Stadiums by Stadium Name", 0));
     } // retranslateUi
 
 };

@@ -2,6 +2,7 @@
 #define ADMINLOGIN_H
 
 #include <QDialog>
+#include "adminfuntion.h"
 
 namespace Ui {
 class adminLogin;
@@ -15,8 +16,14 @@ public:
     explicit adminLogin(QWidget *parent = 0);
     ~adminLogin();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::adminLogin *ui;
+    adminFuntion* AdminFunc;
+
+
 };
 
 #endif // ADMINLOGIN_H

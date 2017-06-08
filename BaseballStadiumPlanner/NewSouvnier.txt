@@ -1,0 +1,6 @@
+Baseball bat
+100.000000
+Team pennant
+20.000000
+Autographed baseball
+19.990000
