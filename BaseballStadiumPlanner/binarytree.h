@@ -48,8 +48,6 @@ public:
     E getRootValue();
     void remove(E);
     void displayInOrder() const { displayInOrder(root); }
-    // void displayPreOrder() const { displayPreOrder(root); }
-    // void displayPostOrder() const { displayPostOrder(root); }
     int getSize() const { return getSize(root); }
 
     // Functions added for stadium project 6/1/2017
@@ -99,25 +97,6 @@ void BinaryTree<E, C>::displayInOrder(TreeNode<E> *nodePtr) const {
         displayInOrder(nodePtr->right);
     }
 }
-/*
-template<typename E, typename C>
-void BinaryTree<E, C>::displayPreOrder(TreeNode<E> *nodePtr) const {
-    if (nodePtr) {
-        cout << nodePtr->value << " ";
-        displayPreOrder(nodePtr->left);
-        displayPreOrder(nodePtr->right);
-    }
-}
-
-template<typename E, typename C>
-void BinaryTree<E, C>::displayPostOrder(TreeNode<E> *nodePtr) const {
-    if (nodePtr) {
-        displayPostOrder(nodePtr->left);
-        displayPostOrder(nodePtr->right);
-        cout << nodePtr->value << " ";
-    }
-}
-*/
 
 template<typename E, typename C>
 void BinaryTree<E, C>::destroySubTree(TreeNode<E> *nodePtr) {
