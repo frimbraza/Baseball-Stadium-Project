@@ -6,8 +6,10 @@ INPUT(
 ./debug\listwindow.o
 ./debug\tripwindow.o
 ./debug\adminlogin.o
+./debug\adminfuntion.o
 ./debug\moc_mainwindow.o
 ./debug\moc_listwindow.o
 ./debug\moc_tripwindow.o
 ./debug\moc_adminlogin.o
+./debug\moc_adminfuntion.o
 );

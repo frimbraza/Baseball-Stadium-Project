@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>List of All Stadiums</string>
+    <string>All Stadiums by Team Name</string>
    </property>
   </widget>
   <widget class="QPushButton" name="listAmLeagueStadiums">
@@ -86,6 +86,19 @@
      <width>781</width>
      <height>551</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="allStadiumByStadiumName">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>290</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>All Stadiums by Stadium Name</string>
    </property>
   </widget>
  </widget>
@@ -171,6 +184,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>allStadiumByStadiumName</sender>
+   <signal>clicked()</signal>
+   <receiver>ListWindow</receiver>
+   <slot>printByStadiumName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>312</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>printAL()</slot>
@@ -178,5 +207,6 @@
   <slot>printAll()</slot>
   <slot>printGrass()</slot>
   <slot>printChrono()</slot>
+  <slot>printByStadiumName()</slot>
  </slots>
 </ui>
