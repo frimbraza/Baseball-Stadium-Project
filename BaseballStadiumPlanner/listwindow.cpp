@@ -20,50 +20,21 @@ void ListWindow::setStadiumNameSortedList(const vector<StadiumInfo>& otherList)
 }
 
 //by team name 06/07/2017
+//O(1)
 void ListWindow::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 {
     this->sortedList = otherList;
 }
 
+//O(1)
 void ListWindow::setChronoList(const vector<StadiumInfo> &otherList)
 {
     this->chronoList = otherList;
 }
 
-/*
-void ListWindow::setAllStadiumsString(std::string input)
-{
-    AllStadInfo = input;
-}
-*/
 
-//void ListWindow::on_listAllStadiums_clicked()
-//{
-//    // Note that QT is really dumb, and has it's own QString. It won't take real strings
-//    //ui->listDisplayBox->setText(QString::fromStdString(AllStadInfo));
-//}
-
-
-//void ListWindow::on_listAmLeagueStadiums_clicked()
-//{
-//    //ui->listDisplayBox->setText("The list of AL stadiums go here.");
-//}
-
-//void ListWindow::on_listNLStadiums_clicked()
-//{
-//    //ui->listDisplayBox->setText("NL List.\n1) dodger\n2)Angel\n3)Test\n");
-//}
-
-//void ListWindow::on_ListGrassStadiums_clicked()
-//{
-//    //ui->listDisplayBox->setText("So Grassy. Much Grass.");
-//}
-
-//void ListWindow::on_ListChronologicalStadium_clicked()
-//{
-//    //ui->listDisplayBox->setText("List the stadiums chronolocially.");
-//}
-
+//Append stadium object to table
+//O(1)
 void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount()+1);
@@ -89,6 +60,7 @@ void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
 }
 
 //by stadium name 06/07/2017
+//O(n)
 void ListWindow::printByStadiumName()
 {
     initializeTableInfo();
@@ -99,6 +71,7 @@ void ListWindow::printByStadiumName()
     }
 }
 
+//O(n)
 void ListWindow::printAL()
 {
     initializeTableInfo();
@@ -113,6 +86,7 @@ void ListWindow::printAL()
 }
 
 //by team name 06/07/2017
+//O(n)
 void ListWindow::printAll()
 {
     initializeTableInfo();
@@ -123,6 +97,7 @@ void ListWindow::printAll()
     }
 }
 
+//O(n)
 void ListWindow::printNL()
 {
     initializeTableInfo();
@@ -136,6 +111,7 @@ void ListWindow::printNL()
     }
 }
 
+//O(n)
 void ListWindow::printGrass()
 {
     initializeTableInfo();
@@ -149,6 +125,7 @@ void ListWindow::printGrass()
     }
 }
 
+//O(n)
 void ListWindow::printChrono()
 {
     initializeTableInfo();
