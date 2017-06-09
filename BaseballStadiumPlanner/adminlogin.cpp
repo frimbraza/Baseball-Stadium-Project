@@ -13,6 +13,11 @@ adminLogin::~adminLogin()
     delete ui;
 }
 
+/****************************************************
+void adminLogin::on_pushButton_clicked()
+_____________________________________________________
+check login info
+*****************************************************/
 void adminLogin::on_pushButton_clicked()
 {
     QString username, password;
