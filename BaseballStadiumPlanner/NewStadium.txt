@@ -1,5 +1,5 @@
 Chase Field
-Arizona Diamondbacks
+Atlanta Braves
 401 East Jefferson Street
 Phoenix, AZ 85004
 (602) 462-6500
@@ -267,4 +267,13 @@ Washington, DC 20003
 March 30, 2008
 41418
 NL
+grass
+k
+k
+z
+a
+k
+January 1, 2017
+40000
+AL
 grass

@@ -7,6 +7,7 @@ INPUT(
 ./release\tripwindow.o
 ./release\adminlogin.o
 ./release\adminfuntion.o
+./release\graph.o
 ./release\moc_mainwindow.o
 ./release\moc_listwindow.o
 ./release\moc_tripwindow.o

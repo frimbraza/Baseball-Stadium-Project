@@ -1,12 +1,3 @@
-/*
-* list window header file
-* 
-* initializes set and append functions, print functions and info strings, and vector lists
-* 
-* list window is a second level page of our interface
-*
-*/
-
 #ifndef LISTWINDOW_H
 #define LISTWINDOW_H
 
@@ -32,6 +23,7 @@ public:
 
     void setSortedStadiumList(const vector<StadiumInfo>& sortedList);
     void setChronoList(const vector<StadiumInfo>& otherList);
+//    void setAllStadiumsString(std::string input);
 
     void appendStadium(int index, vector<StadiumInfo> theList);
 
@@ -43,8 +35,20 @@ public slots:
     void printGrass();
     void printChrono();
 
+//private slots:
+//    void on_listAllStadiums_clicked();
+
+//    void on_listAmLeagueStadiums_clicked();
+
+//    void on_listNLStadiums_clicked();
+
+//    void on_ListGrassStadiums_clicked();
+
+//    void on_ListChronologicalStadium_clicked();
+
 private:
     Ui::ListWindow *ui;
+//    std::string AllStadInfo;
     std::string AmStadInfo;
     std::string NlStadInfo;
     std::string grassStadInfo;

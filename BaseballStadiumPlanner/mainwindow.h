@@ -1,12 +1,3 @@
-/*
-* Main window header file
-* 
-* initializes () operator, sortList and on_button_clicked functions
-* 
-* main window is the first page of our interface
-*
-*/
-
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -41,6 +32,7 @@ struct CompareByStadiumName
     bool operator()(StadiumInfo first, StadiumInfo second)
     {
         int compareValue = first.getName().compare(second.getName());
+        //cout << first.getName() << " & " << second.getName() << endl;
         if(compareValue < 0)
             return true;
         else
@@ -70,6 +62,7 @@ public:
     ~MainWindow();
     void SkipBOM(std::ifstream &in);       // 6/7/2017
 
+    // Fix these up to be compatible with the GUI; complete
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByTeamName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByStadiumName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByDate();
@@ -94,11 +87,17 @@ private:
     Ui::MainWindow *ui;
     ListWindow* listWindow;
     adminLogin* AdminLogin;
-    TripWindow* tripWindow;
+    TripWindow* tripWindow;// 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     BinaryTree<StadiumInfo, StadiumComparebyTeam>* stadiumList;
-    string stadInfoString;
+    string stadInfoString;  // Added for testing purposes
 
+    // vector<string> stadiumNameList;             // 6/7/2017
+
+    // vector<int> shortStadiums;
+    // vector<int> shortALStadiums;
+    // vector<int> shortNLStadiums;
+    
     vector<Souvenir> souvenirList;
 
 

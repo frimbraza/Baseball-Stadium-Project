@@ -1,15 +1,5 @@
-/*
-* date class file
-* 
-* contains <, <<, and > operators, date variables, and print functions
-* 
-* 
-*
-*/
-
 #include "date.h"
 
-//convert string to date
 void Date::converToDate(string str)
 {
     string strWords[3];
@@ -20,6 +10,7 @@ void Date::converToDate(string str)
         }
         else if(str[i] == ',')
         {
+            // do nothing
         }
         else
         {
@@ -36,7 +27,6 @@ void Date::converToDate(string str)
     month = number(monthName);
 }
 
-//get date in string
 string Date::getStringDate()
 {
     string dateHolder = "";
@@ -48,7 +38,6 @@ string Date::getStringDate()
     return dateHolder;
 }
 
-//<< operator
 ostream& operator<<(ostream& out, Date& date)
 {
     out << date.monthName <<" " << date.day <<" " << date.year <<" ";
@@ -57,7 +46,7 @@ ostream& operator<<(ostream& out, Date& date)
 
 }
 
-//< operator
+
 bool Date::operator < (const Date& other) const
 {
     if(year > other.year)
@@ -74,7 +63,6 @@ bool Date::operator < (const Date& other) const
         return true;
 }
 
-// > operator
 bool Date::operator > (const Date& date) const
 {
     if(year > date.year)
@@ -88,7 +76,6 @@ bool Date::operator > (const Date& date) const
 
 }
 
-//unsigned number string; assign months to numbers
 unsigned Date::number(const string& mn) const
 {
 

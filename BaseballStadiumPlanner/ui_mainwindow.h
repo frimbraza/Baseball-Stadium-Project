@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,6 +33,7 @@ public:
     QPushButton *AdminButton;
     QLabel *Title;
     QPushButton *UpdateButton;
+    QLabel *UpdateLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -59,11 +60,17 @@ public:
         Title->setScaledContents(false);
         UpdateButton = new QPushButton(centralWidget);
         UpdateButton->setObjectName(QStringLiteral("UpdateButton"));
-        UpdateButton->setGeometry(QRect(410, 160, 211, 141));
+        UpdateButton->setGeometry(QRect(420, 150, 211, 141));
+        UpdateLabel = new QLabel(centralWidget);
+        UpdateLabel->setObjectName(QStringLiteral("UpdateLabel"));
+        UpdateLabel->setGeometry(QRect(410, 320, 251, 91));
+        QFont font;
+        font.setPointSize(14);
+        UpdateLabel->setFont(font);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 994, 21));
+        menuBar->setGeometry(QRect(0, 0, 994, 26));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -85,6 +92,7 @@ public:
         AdminButton->setText(QApplication::translate("MainWindow", "Admin Functions", 0));
         Title->setText(QApplication::translate("MainWindow", "The Ultimate Baseball Planner", 0));
         UpdateButton->setText(QApplication::translate("MainWindow", "Update", 0));
+        UpdateLabel->setText(QString());
     } // retranslateUi
 
 };
