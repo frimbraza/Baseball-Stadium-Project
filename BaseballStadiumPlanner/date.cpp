@@ -1,3 +1,12 @@
+/*
+* date class file
+* 
+* contains < and > operators, date variables, and print functions
+* 
+* 
+*
+*/
+
 #include "date.h"
 
 void Date::converToDate(string str)
@@ -10,7 +19,6 @@ void Date::converToDate(string str)
         }
         else if(str[i] == ',')
         {
-            // do nothing
         }
         else
         {
