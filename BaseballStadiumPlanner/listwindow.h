@@ -28,12 +28,12 @@ public:
     explicit ListWindow(QWidget *parent = 0);
     ~ListWindow();
 
-    void setStadiumNameSortedList(const vector<StadiumInfo>& otherList);// Added 6/7/2017
+    void setStadiumNameSortedList(const vector<StadiumInfo>& otherList);//construct list by stadium name
 
-    void setSortedStadiumList(const vector<StadiumInfo>& sortedList);
-    void setChronoList(const vector<StadiumInfo>& otherList);
+    void setSortedStadiumList(const vector<StadiumInfo>& sortedList);//construct list by team name
+    void setChronoList(const vector<StadiumInfo>& otherList);//construct list by date opened
 
-    void appendStadium(int index, vector<StadiumInfo> theList);
+    void appendStadium(int index, vector<StadiumInfo> theList);//add stadium to list
 
 public slots:
     void printByStadiumName();      // Added 6/7/2017
