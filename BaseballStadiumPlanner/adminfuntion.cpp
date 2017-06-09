@@ -566,7 +566,7 @@ void adminFuntion::on_AddNewStadium_clicked()
 
 
 
-    for(int i = 0; (int)capacity.size();++i)
+    for(int i = 0; i < (int)capacity.size();++i)
     {
         if(!isdigit(capacity[i]))
             return;
