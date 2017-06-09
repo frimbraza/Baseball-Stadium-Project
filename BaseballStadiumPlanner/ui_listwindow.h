@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'listwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -29,6 +29,7 @@ public:
     QPushButton *ListGrassStadiums;
     QPushButton *ListChronologicalStadium;
     QTableWidget *TableWidget;
+    QPushButton *allStadiumByStadiumName;
 
     void setupUi(QDialog *ListWindow)
     {
@@ -37,22 +38,25 @@ public:
         ListWindow->resize(1144, 588);
         listAllStadiums = new QPushButton(ListWindow);
         listAllStadiums->setObjectName(QStringLiteral("listAllStadiums"));
-        listAllStadiums->setGeometry(QRect(40, 30, 191, 31));
+        listAllStadiums->setGeometry(QRect(40, 30, 220, 31));
         listAmLeagueStadiums = new QPushButton(ListWindow);
         listAmLeagueStadiums->setObjectName(QStringLiteral("listAmLeagueStadiums"));
-        listAmLeagueStadiums->setGeometry(QRect(40, 80, 191, 31));
+        listAmLeagueStadiums->setGeometry(QRect(40, 80, 220, 31));
         listNLStadiums = new QPushButton(ListWindow);
         listNLStadiums->setObjectName(QStringLiteral("listNLStadiums"));
-        listNLStadiums->setGeometry(QRect(40, 130, 191, 31));
+        listNLStadiums->setGeometry(QRect(40, 130, 220, 31));
         ListGrassStadiums = new QPushButton(ListWindow);
         ListGrassStadiums->setObjectName(QStringLiteral("ListGrassStadiums"));
-        ListGrassStadiums->setGeometry(QRect(40, 180, 191, 31));
+        ListGrassStadiums->setGeometry(QRect(40, 180, 220, 31));
         ListChronologicalStadium = new QPushButton(ListWindow);
         ListChronologicalStadium->setObjectName(QStringLiteral("ListChronologicalStadium"));
-        ListChronologicalStadium->setGeometry(QRect(40, 230, 191, 31));
+        ListChronologicalStadium->setGeometry(QRect(40, 230, 220, 31));
         TableWidget = new QTableWidget(ListWindow);
         TableWidget->setObjectName(QStringLiteral("TableWidget"));
         TableWidget->setGeometry(QRect(340, 20, 781, 551));
+        allStadiumByStadiumName = new QPushButton(ListWindow);
+        allStadiumByStadiumName->setObjectName(QStringLiteral("allStadiumByStadiumName"));
+        allStadiumByStadiumName->setGeometry(QRect(40, 290, 220, 31));
 
         retranslateUi(ListWindow);
         QObject::connect(listAmLeagueStadiums, SIGNAL(clicked()), ListWindow, SLOT(printAL()));
@@ -60,6 +64,7 @@ public:
         QObject::connect(listNLStadiums, SIGNAL(clicked()), ListWindow, SLOT(printNL()));
         QObject::connect(ListGrassStadiums, SIGNAL(clicked()), ListWindow, SLOT(printGrass()));
         QObject::connect(ListChronologicalStadium, SIGNAL(clicked()), ListWindow, SLOT(printChrono()));
+        QObject::connect(allStadiumByStadiumName, SIGNAL(clicked()), ListWindow, SLOT(printByStadiumName()));
 
         QMetaObject::connectSlotsByName(ListWindow);
     } // setupUi
@@ -67,11 +72,12 @@ public:
     void retranslateUi(QDialog *ListWindow)
     {
         ListWindow->setWindowTitle(QApplication::translate("ListWindow", "Dialog", 0));
-        listAllStadiums->setText(QApplication::translate("ListWindow", "List of All Stadiums", 0));
+        listAllStadiums->setText(QApplication::translate("ListWindow", "All Stadiums by Team Name", 0));
         listAmLeagueStadiums->setText(QApplication::translate("ListWindow", "List of AL Staidiums", 0));
         listNLStadiums->setText(QApplication::translate("ListWindow", "List of NL Stadiums", 0));
         ListGrassStadiums->setText(QApplication::translate("ListWindow", "List of Stadiums with grass", 0));
         ListChronologicalStadium->setText(QApplication::translate("ListWindow", "List Stadiums Chronologically", 0));
+        allStadiumByStadiumName->setText(QApplication::translate("ListWindow", "All Stadiums by Stadium Name", 0));
     } // retranslateUi
 
 };

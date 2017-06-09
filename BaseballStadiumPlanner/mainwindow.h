@@ -1,3 +1,12 @@
+/*
+* Main window header file
+* 
+* initializes () operator, sortList and on_button_clicked functions
+* 
+* main window is the first page of our interface
+*
+*/
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -5,9 +14,10 @@
 #include "listwindow.h"
 #include "adminlogin.h"
 #include "adminfuntion.h"
+#include "tripwindow.h"// 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #include <fstream>
-#include <iostream>
+#include <iostream>     //remove when we're done
 #include <string>
 #include "binarytree.h"
 #include "stadiuminfo.h"
@@ -58,7 +68,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    // Fix these up to be compatible with the GUI
+    void SkipBOM(std::ifstream &in);       // 6/7/2017
+
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByTeamName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByStadiumName();
     BinaryTree<StadiumInfo, StadiumComparebyTeam> sortByDate();
@@ -83,17 +94,11 @@ private:
     Ui::MainWindow *ui;
     ListWindow* listWindow;
     adminLogin* AdminLogin;
-
+    TripWindow* tripWindow;
 
     BinaryTree<StadiumInfo, StadiumComparebyTeam>* stadiumList;
-    string stadInfoString;  // Added for testing purposes
+    string stadInfoString;
 
-    vector<string> stadiumNameList;
-
-    vector<int> shortStadiums;
-    vector<int> shortALStadiums;
-    vector<int> shortNLStadiums;
-    
     vector<Souvenir> souvenirList;
 
 

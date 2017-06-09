@@ -1,3 +1,12 @@
+/*
+* Main window class file
+* 
+* contains () operator, sortList and on_button_clicked functions
+* 
+* main window is the first page of our interface
+*
+*/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "listwindow.h"
@@ -18,11 +27,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//skips hidden 3 characters at beginning of text file
+void MainWindow::SkipBOM(std::ifstream &in)         // Added 6/7/2017
+{
+    char test[3] = {0};
+    in.read(test, 3);
+    if ((unsigned char)test[0] == 0xEF &&
+        (unsigned char)test[1] == 0xBB &&
+        (unsigned char)test[2] == 0xBF)
+    {
+        return;
+    }
+    in.seekg(0);
+}
+
 void MainWindow::addSouvenirList()
 {
     ifstream inFile;
 
-    inFile.open("Souvnier.txt");
+    inFile.open("/Users/zhijunchen/Dropbox/BaseballStadiumPlanner/Souvnier.txt"); //("Souvnier.txt");
     if (inFile.fail())
     {
         cout<<"Input Souvnier.txt opening failed.\n";
@@ -55,13 +78,13 @@ void MainWindow::readFromFile()
 {
     ifstream inFile;
 
-    inFile.open("Stadium.txt");
+    inFile.open("/Users/zhijunchen/Dropbox/BaseballStadiumPlanner/Stadium.txt"); //("Stadium.txt");
     if (inFile.fail())
     {
         cout<<"Input Stadium.txt opening failed.\n";
         exit(1);
     }
-
+    SkipBOM(inFile);      //skips first 3 weird hidden characters 06/07/2017
     string name, team,street,cityInfo,phoneNum,capacity,openedDate,NL,grass;
     StadiumInfo stadium;
 
@@ -121,7 +144,7 @@ void MainWindow::readFromFile()
     inFile.close();
 
     // This is where the output is coming from. Take out later
-    stadiumList->displayInOrder();
+    // stadiumList->displayInOrder();
 }
 void MainWindow::on_ListButton_clicked()
 {
@@ -129,29 +152,53 @@ void MainWindow::on_ListButton_clicked()
     //listWindow.setModal(true);
     //listWindow.exec();
     listWindow = new ListWindow(this);
-    listWindow->setAllStadiumsString(stadInfoString);
+    // listWindow->setAllStadiumsString(stadInfoString);
 
     vector<StadiumInfo> inOrderList;
     stadiumList->inOrderItemList(inOrderList);
     listWindow->setSortedStadiumList(inOrderList);          // Set sorted List
 
     BinaryTree<StadiumInfo,CompareByDate> chronoTree;
-    for(int i = 0; i < inOrderList.size();++i)
+    for(int i = 0; i < (int)inOrderList.size();++i)
         chronoTree.insertNode(inOrderList[i]);
     vector<StadiumInfo> chronoList;                         // Create chronological vector
     chronoTree.inOrderItemList(chronoList);
     listWindow->setChronoList(chronoList);
 
+    //everything between these lines-->added 06/07/2017----
+    BinaryTree<StadiumInfo,CompareByStadiumName> stadiumNameTree;
+    for(int i = 0; i < (int)inOrderList.size();++i)
+        stadiumNameTree.insertNode((inOrderList[i]));
+    vector<StadiumInfo> sortedNameList;
+    stadiumNameTree.inOrderItemList(sortedNameList);
+    listWindow->setStadiumNameSortedList(sortedNameList);
+    //end of lines----------------------------------------
 
     listWindow->setModal(true);
     listWindow->show();
 }
 
+// 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
 void MainWindow::on_TripsButton_clicked()
 {
-    TripWindow tripWindow;
-    tripWindow.setModal(true);
-    tripWindow.exec();
+    tripWindow = new TripWindow(this);
+
+    vector<StadiumInfo> tempVector;
+    stadiumList->inOrderItemList(tempVector);
+
+    vector<StadiumInfo> sortedNameList;
+    BinaryTree<StadiumInfo,CompareByStadiumName> nameTree;
+    for(int i = 0; i < (int)tempVector.size();++i)
+        nameTree.insertNode(tempVector[i]);
+
+    nameTree.inOrderItemList(sortedNameList);
+
+    tripWindow->setSortedStadList(sortedNameList);
+
+    tripWindow->setSouvList(this->souvenirList);   // 6/8/2017
+
+    tripWindow->setModal(true);
+    tripWindow->exec();
 }
 
 void MainWindow::on_AdminButton_clicked()
@@ -159,8 +206,6 @@ void MainWindow::on_AdminButton_clicked()
     AdminLogin = new adminLogin(this);
     AdminLogin->setModal(true);
     AdminLogin->show();
-
-
 
 }
 
@@ -172,7 +217,7 @@ void MainWindow::on_UpdateButton_clicked()
 
     ifstream inFile;
 
-    inFile.open("NewStadium.txt");
+    inFile.open("/Users/zhijunchen/Dropbox/BaseballStadiumPlanner/NewStadium.txt"); //("NewStadium.txt");
     if (inFile.fail())
     {
         cout<<"Input NewStadium.txt opening failed.\n";
@@ -245,7 +290,7 @@ void MainWindow::on_UpdateButton_clicked()
 
     souvenirList.clear();
 
-    inFile.open("NewSouvnier.txt");
+    inFile.open("/Users/zhijunchen/Dropbox/BaseballStadiumPlanner/NewSouvnier.txt"); //("NewSouvnier.txt");
     if (inFile.fail())
     {
         cout<<"Input NewSouvnier.txt opening failed.\n";
@@ -272,8 +317,6 @@ void MainWindow::on_UpdateButton_clicked()
 
 
 
-
-
-
+    ui->UpdateLabel->setText("All List Updated.");
 
 }
