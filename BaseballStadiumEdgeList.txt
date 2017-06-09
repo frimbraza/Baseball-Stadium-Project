@@ -1,0 +1,46 @@
+AT&T Park,Safeco Field,680
+AT&T Park,Dodger Stadium,340
+AT&T Park,Chase Field,650
+Dodger Stadium,Target Field,1500
+Dodger Stadium,PETCO Park,110
+Safeco Field,Rogers Center,2070
+Safeco Field,Target Field,1390
+PETCO Park,Coer's Field,830
+PETCO Park,Chase Field,300
+Chase Field,Coer's Field,580
+Chase Field,Rangers Ballpark,870
+Chase Field,Minute Maid Park,1115
+Coer's Field,Kauffman Stadium,560
+Coer's Field,Rangers Ballpark,650
+Rangers Ballpark,Kauffman Stadium,460
+Rangers Ballpark,Turner Field,740
+Rangers Ballpark,Minute Maid Park,230
+Minute Maid Park,Busch Stadium,680
+Minute Maid Park,Tropicana Field,790
+Minute Maid Park,Marlins Park,965
+Kauffman Stadium,Wrigley Field,415
+Kauffman Stadium,Busch Stadium,235
+Target Field,Miller Park,300
+Target Field,Brusch Stadium,465
+Brusch Stadium,Great American Ballpark,31
+Miller Park,Rogers Center,430
+Miller Park,Wringley Field,80
+Wringley Field,Comerica Park,240
+Wringley Field,Great American Ballpark,250
+Great American Ballpark,Progressive Field, 225
+Great American Ballpark,PNC Park,260
+Great American Ballpark,Turner Field,375
+Great American Ballpark,Tropicana Field,790
+Turner Field,Nationals Park,560
+Turner Field,Marlins Park,600
+Progressive Field,PNC Park,115
+Rogers Center,Fenway Park,430
+Rogers Center,PNC Park,225
+PNC Park,Yankee Stadium,315
+PNC Park,Nationals Park,195
+Tropicana Field,Marlins Park,210
+Marlins Park,Nationals Park,930
+Marlins Park,Fenway Park,1255
+Nationals Park,Citizens Bank Park,90
+Citizens Bank Park,Yankee Stadium,8
+Yankee Stadium,Fenway Park,195
