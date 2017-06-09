@@ -14,6 +14,7 @@ adminFuntion::adminFuntion(QWidget *parent) :
 
 }
 
+//deconstructor
 adminFuntion::~adminFuntion()
 {
     delete ui;
@@ -23,6 +24,7 @@ adminFuntion::~adminFuntion()
 void adminFuntion::readFromFile()
 _____________________________________________________
 Loading info to stadium list and souvenir list
+-O(n)
 *****************************************************/
 void adminFuntion::readFromFile()
 {
@@ -102,6 +104,7 @@ void adminFuntion::readFromFile()
 void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 _____________________________________________________
 Sets a vector to another vector in parameter
+-O(1)
 *****************************************************/
 void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 {
@@ -113,6 +116,7 @@ void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 void adminFuntion::addSouvenirList()
 _____________________________________________________
 intializes souveninr list
+-O(n)
 *****************************************************/
 void adminFuntion::addSouvenirList()
 {
@@ -149,6 +153,7 @@ void adminFuntion::addSouvenirList()
 void adminFuntion::saveAtNewSouvnierFile()
 _____________________________________________________
 Save changes to new file
+-O(n)
 *****************************************************/
 void adminFuntion::saveAtNewSouvnierFile()
 {
@@ -176,6 +181,7 @@ void adminFuntion::saveAtNewSouvnierFile()
 void adminFuntion::saveAtNewStadiumFile()
 _____________________________________________________
 Save changes to new file
+-O(n)
 *****************************************************/
 void adminFuntion::saveAtNewStadiumFile()
 {
@@ -215,18 +221,21 @@ void adminFuntion::saveAtNewStadiumFile()
 
 
 //Display button
+//-O(1)
 void adminFuntion::on_Display_clicked()
 {
     displaySouvenir();
 }
 
 //Display stadium button
+//-O(1)
 void adminFuntion::on_Display_Stadium_List_1_clicked()
 {
     printAll();
 }
 
 //display stadium button
+//-O(1)
 void adminFuntion::on_Display_Stadium_List_clicked()
 {
     printAll();
@@ -234,6 +243,7 @@ void adminFuntion::on_Display_Stadium_List_clicked()
 
 
 //Initialize souvenir table
+//-O(n)
 void adminFuntion::displaySouvenir()
 {
     initializeSouvenirTableInfo();
@@ -244,6 +254,7 @@ void adminFuntion::displaySouvenir()
 }
 
 //Intialize stadium table
+//-O(n)
 void adminFuntion::printAll()
 {
     initializeStadiumTableInfo();
@@ -256,6 +267,7 @@ void adminFuntion::printAll()
 
 
 //Append souvenir to table
+//-O(1)
 void adminFuntion::appendSouvenir(int index, vector<Souvenir> theList)
 {
     ui->tableWidget->setRowCount(ui->tableWidget->rowCount()+1);
@@ -269,6 +281,7 @@ void adminFuntion::appendSouvenir(int index, vector<Souvenir> theList)
 }
 
 //Append stadium to table
+//-O(1)
 void adminFuntion::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->tableWidget->setRowCount(ui->tableWidget->rowCount()+1);
@@ -293,6 +306,7 @@ void adminFuntion::appendStadium(int index, vector<StadiumInfo> theList)
 }
 
 //Initialize souvenir table info
+//-O(1)
 void adminFuntion::initializeSouvenirTableInfo()
 {
     ui->tableWidget->setColumnCount(2);
@@ -305,6 +319,7 @@ void adminFuntion::initializeSouvenirTableInfo()
 }
 
 //Initialize stadium table info
+//-O(1)
 void adminFuntion::initializeStadiumTableInfo()
 {
     ui->tableWidget->setColumnCount(7);
@@ -317,6 +332,7 @@ void adminFuntion::initializeStadiumTableInfo()
 }
 
 //Souvenir Functions
+//-O(n)
 void adminFuntion::on_Add_Souvenir_clicked()
 {
     QString name, price;
@@ -365,6 +381,7 @@ void adminFuntion::on_Add_Souvenir_clicked()
 }
 
 //delete souvenir from list
+//-O(n)
 void adminFuntion::on_Delete_Souvenir_clicked()
 {
     QString name;
@@ -399,6 +416,8 @@ void adminFuntion::on_Delete_Souvenir_clicked()
     displaySouvenir();
 }
 
+//Change souvenir price
+//-O(n)
 void adminFuntion::on_Change_Souvenir_clicked()
 {
     QString name, price;
@@ -462,7 +481,8 @@ void adminFuntion::on_Change_Souvenir_clicked()
 
 }
 
-//New Team Function
+//Create new team
+//-O(n)
 void adminFuntion::on_AddNewTeam_clicked()
 {
     QString team, stadium;
@@ -524,8 +544,8 @@ void adminFuntion::on_AddNewTeam_clicked()
 
 }
 
-
-
+//add new stadium to list
+//-O(n)
 void adminFuntion::on_AddNewStadium_clicked()
 {
     std::string stadiumName, teamName, street,
