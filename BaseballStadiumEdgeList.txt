@@ -31,8 +31,8 @@ Target Field,Brusch Stadium,465
 Brusch Stadium,Great America Ball Park,31
 Miller Park,Rogers Centre,430
 Miller Park,Wringley Field,80
-Wringley Field,Comerica Park,240
-Wringley Field,Great American Ballpark,250
+Wrigley Field,Comerica Park,240
+Wrigley Field,Great American Ballpark,250
 Great America Ball Park,Progressive Field, 225
 Great America Ball Park,PNC Park,260
 Great America Ball Park,Turner Field,375
