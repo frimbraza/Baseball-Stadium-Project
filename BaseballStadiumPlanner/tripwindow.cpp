@@ -1,3 +1,12 @@
+/*Trip window header file
+* 
+* Trip window is a second level page that opens when the user
+* presses the plan a trip button
+* 
+* initializes vector lists, setLists/append/initialize table/ on_button_clicked functions
+* 
+*/
+
 #include "tripwindow.h"
 #include "ui_tripwindow.h"
 #include <iostream>     // testing.. Remove later
@@ -90,7 +99,6 @@ void TripWindow::appendStad2(int index1,int index2, const vector<string> &theLis
     totalDistance = totalDistance + distance;
     ui->TableWidget->setItem(n, 1, new QTableWidgetItem(QString::fromStdString(to_string(totalDistance))));
     ui->TableWidget->setItem(n,2,new QTableWidgetItem(QString::fromStdString(league)));
-    // come back here, for third item
 }
 
 
@@ -101,7 +109,6 @@ void TripWindow::appendSouv(int index)
 
 
     ui->TableWidget->setItem(n, 0, new QTableWidgetItem(QString::fromStdString(souvList[index].getName())));
-    // cout << souvList[index].getName() << " !!!!!!!!!! " <<  endl;
     ui->TableWidget->setItem(n, 1, new QTableWidgetItem(QString::fromStdString(souvList[index].getPrice())));
 }
 
