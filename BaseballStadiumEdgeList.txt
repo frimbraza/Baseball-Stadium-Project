@@ -30,7 +30,7 @@ Target Field,Miller Park,300
 Target Field,Busch Stadium,465
 Busch Stadium,Great America Ball Park,31
 Miller Park,Rogers Centre,430
-Miller Park,Wringley Field,80
+Miller Park,Wrigley Field,80
 Wrigley Field,Comerica Park,240
 Wrigley Field,Great American Ballpark,250
 Great America Ball Park,Progressive Field, 225
