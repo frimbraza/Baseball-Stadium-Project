@@ -8,11 +8,6 @@ namespace Ui {
 class adminLogin;
 }
 
-/*******************************************
-class adminLogin
-____________________________________________
-class to allow admin login info to be accessed
-********************************************/
 class adminLogin : public QDialog
 {
     Q_OBJECT

@@ -1,11 +1,3 @@
-/*
-* StadiumInfo header file
-* 
-* initializes stadium variables, set/get functions
-* 
-*/
-
-
 #ifndef STADIUMINFO_H
 #define STADIUMINFO_H
 

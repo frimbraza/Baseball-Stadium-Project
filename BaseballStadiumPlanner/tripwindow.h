@@ -1,12 +1,3 @@
-/*
-* Trip window header file
-* 
-* initialize on_button_clicked, lists, and setList functions
-*
-*
-*
-*/
-
 #ifndef TRIPWINDOW_H
 #define TRIPWINDOW_H
 // whole thing // 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -14,6 +5,9 @@
 #include <vector>       // 06/07/2017
 #include "stadiuminfo.h"
 #include "souvenir.h"
+#include "graph.h"
+
+using namespace std; // don't know if need this
 
 namespace Ui {
 class TripWindow;
@@ -32,6 +26,10 @@ public:
     void setSouvList(const vector<Souvenir>& other);
 
     void appendStadium(int index, vector<StadiumInfo> theList);
+
+    void appendFirst(string name, int totalDistance, string league);
+
+    void appendStad2(int index1, int index2, const vector<string> &theList, int &totalDistance, string league);
 
     void appendSouv(int index);
 
@@ -58,25 +56,18 @@ private slots:
 
 private:
     Ui::TripWindow *ui;
-    
-    //list of stadiums
     vector<StadiumInfo> original;
 
-    //copy of original
     vector<StadiumInfo> stadList;
-
-    //list of either NL or AL stadiums
     vector<StadiumInfo> customList;
 
-    //list of souvenirs
     vector<Souvenir> souvList;
-    
-    //boolean variable to check if souvList
-    //has been initilized or not
     bool souvListInitialized;
 
-    //tracks total price for selected souvenirs
     double totalPrice;
+
+    Graph travelMap;
+
 };
 
 #endif // TRIPWINDOW_H

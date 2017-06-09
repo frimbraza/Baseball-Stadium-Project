@@ -1,0 +1,59 @@
+Angels Stadium of Anaheim,Target Field,1500
+Angels Stadium of Anaheim,Petco Park,110
+AT&T Park,Safeco Field,680
+AT&T Park,Dodger Stadium,340
+AT&T Park,Chase Field,650
+O.co Coliseum,Safeco Field,680
+O.co Coliseum,Dodger Stadium,340
+O.co Coliseum,Chase Field,650
+Dodger Stadium,Target Field,1500
+Dodger Stadium,Petco Park,110
+Safeco Field,Rogers Centre,2070
+Safeco Field,Target Field,1390
+Petco Park,Coor's Field,830
+Petco Park,Chase Field,300
+Chase Field,Coor's Field,580
+Chase Field,Globe Life Park in Arlington,870
+Chase Field,Minute Maid Park,1115
+Coor's Field,Kauffman Stadium,560
+Coor's Field,Globe Life Park in Arlington,650
+Globe Life Park in Arlington,Kauffman Stadium,460
+Globe Life Park in Arlington,Turner Field,740
+Globe Life Park in Arlington,Minute Maid Park,230
+Minute Maid Park,Busch Stadium,680
+Minute Maid Park,Tropicana Field,790
+Minute Maid Park,Marlins Park,965
+Kauffman Stadium,Wrigley Field,415
+Kauffman Stadium,US Cellular Stadium,415
+Kauffman Stadium,Busch Stadium,235
+Target Field,Miller Park,300
+Target Field,Brusch Stadium,465
+Brusch Stadium,Great America Ball Park,31
+Miller Park,Rogers Centre,430
+Miller Park,Wringley Field,80
+Wringley Field,Comerica Park,240
+Wringley Field,Great American Ballpark,250
+Great America Ball Park,Progressive Field, 225
+Great America Ball Park,PNC Park,260
+Great America Ball Park,Turner Field,375
+Great America Ball Park,Tropicana Field,790
+Turner Field,Nationals Park,560
+Turner Field,Oriole Park at Camden Yards,560
+Turner Field,Marlins Park,600
+Progressive Field,PNC Park,115
+Rogers Centre,Fenway Park,430
+Rogers Centre,PNC Park,225
+PNC Park,Yankee Stadium,315
+PNC Park,Citi Field,315
+PNC Park,Nationals Park,195
+PNC Park,Oriole Park at Camden Yards,195
+Tropicana Field,Marlins Park,210
+Marlins Park,Nationals Park,930
+Marlins Park,Oriole Park at Camden Yards,930
+Marlins Park,Fenway Park,1255
+Nationals Park,Citizens Bank Park,90
+Oriole Park at Camden Yards,Citizens Bank Park,90
+Citizens Bank Park,Yankee Stadium,8
+Citizens Bank Park,Citi Field,8
+Yankee Stadium,Fenway Park,195
+Citi Field,Fenway Park,195

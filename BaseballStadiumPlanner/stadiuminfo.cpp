@@ -1,10 +1,3 @@
-/*
-* StadiumInfo class file
-* 
-* contains stadium variables, set/get functions, = and << operators
-* 
-*/
-
 #include "stadiuminfo.h"
 
 StadiumInfo::StadiumInfo()
