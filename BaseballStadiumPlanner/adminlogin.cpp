@@ -22,8 +22,6 @@ void adminLogin::on_pushButton_clicked()
 
     if(username == "Annie" && password == "1130")
     {
-        ui->label_LoginText->setText("Username and password is correct");
-
         this->hide();
 
         AdminFunc = new adminFuntion(this);
@@ -32,7 +30,7 @@ void adminLogin::on_pushButton_clicked()
 
     }
     else
-        ui->label_LoginText->setText("Username and password is not correct");
+        ui->label_LoginText->setText("Wrong username or password.");
 
 
 }

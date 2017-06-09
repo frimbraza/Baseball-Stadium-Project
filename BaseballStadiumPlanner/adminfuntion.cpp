@@ -1,5 +1,6 @@
 #include "adminfuntion.h"
 #include "ui_adminfuntion.h"
+#include <QMessageBox>
 
 adminFuntion::adminFuntion(QWidget *parent) :
     QDialog(parent),
@@ -293,6 +294,30 @@ void adminFuntion::on_Add_Souvenir_clicked()
     name = ui->lineEdit_AddName->text();
     price = ui->lineEdit_AddPrice->text();
 
+    if((price.toStdString().size() == 0) || (name.toStdString().size() == 0))
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Something is empty");
+        msgBox.exec();
+
+        return;
+
+    }
+    for(int i = 0; i < (int)price.toStdString().size(); ++i)
+    {
+        if(!isdigit(price.toStdString()[i]))
+        {
+            QMessageBox msgBox;
+
+            msgBox.setText("Price should be a number");
+            msgBox.exec();
+
+            return;
+
+        }
+    }
+
     priceNum = stod(price.toStdString());
 
     Souvenir sv;
@@ -311,15 +336,31 @@ void adminFuntion::on_Add_Souvenir_clicked()
 void adminFuntion::on_Delete_Souvenir_clicked()
 {
     QString name;
+    bool exist = false;
 
     name = ui->lineEdit_deleteName->text();
 
     for (int i=0; i<(int)souvenirList.size(); i++)
     {
         if(souvenirList[i].getName() == name.toStdString())
+        {
             souvenirList.erase(souvenirList.begin()+ i);
+            exist = true;
+        }
 
     }
+
+    if(!exist)
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("This Souvenir is not exist");
+        msgBox.exec();
+
+        return;
+    }
+
+
 
     saveAtNewSouvnierFile();
 
@@ -330,17 +371,58 @@ void adminFuntion::on_Change_Souvenir_clicked()
 {
     QString name, price;
     double priceNum;
+    bool exist = false;
 
     name = ui->lineEdit_ChangeName->text();
     price = ui->lineEdit_ChangePrice->text();
+
+    if((price.toStdString().size() == 0) || (name.toStdString().size() == 0))
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Something is empty");
+        msgBox.exec();
+
+        return;
+
+    }
+    for(int i = 0; i < (int)price.toStdString().size(); ++i)
+    {
+        if(!isdigit(price.toStdString()[i]))
+        {
+            QMessageBox msgBox;
+
+            msgBox.setText("Price should be a number");
+            msgBox.exec();
+
+            return;
+
+        }
+    }
 
     priceNum = stod(price.toStdString());
 
     for (int i=0; i<(int)souvenirList.size(); i++)
     {
         if(souvenirList[i].getName() == name.toStdString())
+        {
             souvenirList[i].setPrice(priceNum);
+            exist = true;
+        }
     }
+
+    if(!exist)
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("This Souvenir is not exist");
+        msgBox.exec();
+
+        return;
+    }
+
+
+
 
     saveAtNewSouvnierFile();
 
@@ -352,11 +434,23 @@ void adminFuntion::on_Change_Souvenir_clicked()
 void adminFuntion::on_AddNewTeam_clicked()
 {
     QString team, stadium;
+    bool teamExist = false, stadiumExist = false;
+
 
     team = ui->lineEdit_TeamSwitch->text();
     stadium = ui->lineEdit_StadiumSwitch->text();
 
     string tempTeam;
+    string tempStadium;
+
+    for(int i=0; i < (int)sortedList.size();i++)
+    {
+        if(sortedList[i].getTeam() == team.toStdString())
+        {
+            tempStadium = sortedList[i].getName();
+            teamExist = true;
+        }
+    }
 
     for(int i=0; i<(int)sortedList.size();i++)
     {
@@ -364,14 +458,32 @@ void adminFuntion::on_AddNewTeam_clicked()
         {
             tempTeam = sortedList[i].getTeam();
             sortedList[i].setTeam(team.toStdString());
+            stadiumExist = true;
         }
-
     }
 
     for(int i=0; i<(int)sortedList.size();i++)
     {
-        if(sortedList[i].getTeam() == team.toStdString())
+        if(sortedList[i].getName() == tempStadium)
             sortedList[i].setTeam(tempTeam);
+    }
+
+
+    QMessageBox msgBox;
+
+    if(!teamExist)
+    {
+        msgBox.setText("This team is not exist");
+        msgBox.exec();
+
+        return;
+    }
+    else if(!stadiumExist)
+    {
+        msgBox.setText("This stadium is not exist");
+        msgBox.exec();
+
+        return;
     }
 
 
@@ -410,10 +522,42 @@ void adminFuntion::on_AddNewStadium_clicked()
     else
         type = false;
 
-    string month, day, year, openDate;
+    if((stadiumName.size() == 0) || (teamName.size() == 0)
+            ||(street.size() == 0)||(cityInfo.size() == 0)
+            ||(phoneNum.size() == 0))
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Something is empty");
+        msgBox.exec();
+
+        return;
+
+    }
+
+
+
+    for(int i = 0; (int)capacity.size();++i)
+    {
+        if(!isdigit(capacity[i]))
+            return;
+    }
+    if(capacity.size() == 0)
+    {
+        capacity = "0";
+    }
+
+    string month, day, openDate, year;
     month = ui->comboBox_Month->currentText().toStdString();
     day = ui->comboBox_Day->currentText().toStdString();
     year = ui->lineEdit_Year->text().toStdString();
+    for(int i =0; i < (int)year.size();++i)
+    {
+        if(!isdigit(year[i]))
+            return;
+    }
+    if(year.size() == 0)
+        year = "0";
     openDate = month + " " + day + " " + year;
 
     Date date;

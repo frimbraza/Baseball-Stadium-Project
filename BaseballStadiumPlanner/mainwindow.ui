@@ -72,14 +72,32 @@
    <widget class="QPushButton" name="UpdateButton">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>160</y>
+      <x>420</x>
+      <y>150</y>
       <width>211</width>
       <height>141</height>
      </rect>
     </property>
     <property name="text">
      <string>Update</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="UpdateLabel">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>320</y>
+      <width>251</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
@@ -89,7 +107,7 @@
      <x>0</x>
      <y>0</y>
      <width>994</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

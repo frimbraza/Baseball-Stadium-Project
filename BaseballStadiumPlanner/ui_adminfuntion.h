@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'adminfuntion.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -40,8 +40,6 @@ public:
     QLabel *label_12;
     QLabel *label_13;
     QLabel *label_14;
-    QLabel *label_15;
-    QLabel *label_16;
     QLineEdit *lineEdit_NewStadium;
     QLineEdit *lineEdit_NewTeam;
     QLineEdit *lineEdit_Street;
@@ -49,16 +47,18 @@ public:
     QLineEdit *lineEdit_PhoneNum;
     QLineEdit *lineEdit_Capacity;
     QLineEdit *lineEdit_Year;
-    QRadioButton *haveGrass;
     QPushButton *AddNewStadium;
-    QRadioButton *noGrass;
-    QRadioButton *AL;
-    QRadioButton *NL;
     QComboBox *comboBox_Month;
     QComboBox *comboBox_Day;
     QLabel *label_17;
     QLabel *label_18;
     QLabel *label_19;
+    QGroupBox *groupBox_6;
+    QRadioButton *haveGrass;
+    QRadioButton *noGrass;
+    QGroupBox *groupBox_7;
+    QRadioButton *NL;
+    QRadioButton *AL;
     QPushButton *Display_Stadium_List_1;
     QWidget *New_Team;
     QGroupBox *groupBox_4;
@@ -100,7 +100,7 @@ public:
         NewStadium->setObjectName(QStringLiteral("NewStadium"));
         groupBox_5 = new QGroupBox(NewStadium);
         groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
-        groupBox_5->setGeometry(QRect(20, 10, 241, 530));
+        groupBox_5->setGeometry(QRect(20, 10, 241, 550));
         label_8 = new QLabel(groupBox_5);
         label_8->setObjectName(QStringLiteral("label_8"));
         label_8->setGeometry(QRect(20, 30, 71, 16));
@@ -122,12 +122,6 @@ public:
         label_14 = new QLabel(groupBox_5);
         label_14->setObjectName(QStringLiteral("label_14"));
         label_14->setGeometry(QRect(20, 210, 71, 16));
-        label_15 = new QLabel(groupBox_5);
-        label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setGeometry(QRect(20, 340, 47, 13));
-        label_16 = new QLabel(groupBox_5);
-        label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setGeometry(QRect(20, 400, 47, 13));
         lineEdit_NewStadium = new QLineEdit(groupBox_5);
         lineEdit_NewStadium->setObjectName(QStringLiteral("lineEdit_NewStadium"));
         lineEdit_NewStadium->setGeometry(QRect(100, 30, 130, 20));
@@ -149,23 +143,9 @@ public:
         lineEdit_Year = new QLineEdit(groupBox_5);
         lineEdit_Year->setObjectName(QStringLiteral("lineEdit_Year"));
         lineEdit_Year->setGeometry(QRect(130, 300, 100, 20));
-        haveGrass = new QRadioButton(groupBox_5);
-        haveGrass->setObjectName(QStringLiteral("haveGrass"));
-        haveGrass->setGeometry(QRect(100, 340, 82, 17));
         AddNewStadium = new QPushButton(groupBox_5);
         AddNewStadium->setObjectName(QStringLiteral("AddNewStadium"));
-        AddNewStadium->setGeometry(QRect(70, 470, 91, 41));
-        noGrass = new QRadioButton(groupBox_5);
-        noGrass->setObjectName(QStringLiteral("noGrass"));
-        noGrass->setGeometry(QRect(100, 360, 82, 17));
-        noGrass->setCheckable(true);
-        noGrass->setChecked(false);
-        AL = new QRadioButton(groupBox_5);
-        AL->setObjectName(QStringLiteral("AL"));
-        AL->setGeometry(QRect(100, 400, 121, 17));
-        NL = new QRadioButton(groupBox_5);
-        NL->setObjectName(QStringLiteral("NL"));
-        NL->setGeometry(QRect(100, 420, 101, 17));
+        AddNewStadium->setGeometry(QRect(70, 490, 91, 41));
         comboBox_Month = new QComboBox(groupBox_5);
         comboBox_Month->setObjectName(QStringLiteral("comboBox_Month"));
         comboBox_Month->setGeometry(QRect(130, 240, 100, 22));
@@ -181,6 +161,26 @@ public:
         label_19 = new QLabel(groupBox_5);
         label_19->setObjectName(QStringLiteral("label_19"));
         label_19->setGeometry(QRect(70, 300, 47, 13));
+        groupBox_6 = new QGroupBox(groupBox_5);
+        groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
+        groupBox_6->setGeometry(QRect(10, 320, 220, 80));
+        haveGrass = new QRadioButton(groupBox_6);
+        haveGrass->setObjectName(QStringLiteral("haveGrass"));
+        haveGrass->setGeometry(QRect(80, 20, 82, 17));
+        noGrass = new QRadioButton(groupBox_6);
+        noGrass->setObjectName(QStringLiteral("noGrass"));
+        noGrass->setGeometry(QRect(80, 50, 82, 17));
+        noGrass->setCheckable(true);
+        noGrass->setChecked(false);
+        groupBox_7 = new QGroupBox(groupBox_5);
+        groupBox_7->setObjectName(QStringLiteral("groupBox_7"));
+        groupBox_7->setGeometry(QRect(10, 400, 220, 80));
+        NL = new QRadioButton(groupBox_7);
+        NL->setObjectName(QStringLiteral("NL"));
+        NL->setGeometry(QRect(80, 50, 101, 17));
+        AL = new QRadioButton(groupBox_7);
+        AL->setObjectName(QStringLiteral("AL"));
+        AL->setGeometry(QRect(80, 20, 121, 17));
         Display_Stadium_List_1 = new QPushButton(NewStadium);
         Display_Stadium_List_1->setObjectName(QStringLiteral("Display_Stadium_List_1"));
         Display_Stadium_List_1->setGeometry(QRect(60, 570, 161, 91));
@@ -286,13 +286,7 @@ public:
         label_12->setText(QApplication::translate("adminFuntion", "Phone Number", 0));
         label_13->setText(QApplication::translate("adminFuntion", "Capacity", 0));
         label_14->setText(QApplication::translate("adminFuntion", "Opened Date", 0));
-        label_15->setText(QApplication::translate("adminFuntion", "Grass", 0));
-        label_16->setText(QApplication::translate("adminFuntion", "AL / NL", 0));
-        haveGrass->setText(QApplication::translate("adminFuntion", "Have Grass", 0));
         AddNewStadium->setText(QApplication::translate("adminFuntion", "Add", 0));
-        noGrass->setText(QApplication::translate("adminFuntion", "No Grass", 0));
-        AL->setText(QApplication::translate("adminFuntion", "American League", 0));
-        NL->setText(QApplication::translate("adminFuntion", "National League", 0));
         comboBox_Month->clear();
         comboBox_Month->insertItems(0, QStringList()
          << QApplication::translate("adminFuntion", "January", 0)
@@ -345,6 +339,12 @@ public:
         label_17->setText(QApplication::translate("adminFuntion", "Month", 0));
         label_18->setText(QApplication::translate("adminFuntion", "Day", 0));
         label_19->setText(QApplication::translate("adminFuntion", "Year", 0));
+        groupBox_6->setTitle(QApplication::translate("adminFuntion", "Grass", 0));
+        haveGrass->setText(QApplication::translate("adminFuntion", "Have Grass", 0));
+        noGrass->setText(QApplication::translate("adminFuntion", "No Grass", 0));
+        groupBox_7->setTitle(QApplication::translate("adminFuntion", "AL / NL", 0));
+        NL->setText(QApplication::translate("adminFuntion", "National League", 0));
+        AL->setText(QApplication::translate("adminFuntion", "American League", 0));
         Display_Stadium_List_1->setText(QApplication::translate("adminFuntion", "Display List", 0));
         tabWidget->setTabText(tabWidget->indexOf(NewStadium), QApplication::translate("adminFuntion", "New Stadium", 0));
         groupBox_4->setTitle(QApplication::translate("adminFuntion", "Add New Team", 0));

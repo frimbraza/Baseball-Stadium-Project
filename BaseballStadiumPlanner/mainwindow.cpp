@@ -306,4 +306,8 @@ void MainWindow::on_UpdateButton_clicked()
 
     inFile.close();
 
+
+
+    ui->UpdateLabel->setText("All List Updated.");
+
 }
