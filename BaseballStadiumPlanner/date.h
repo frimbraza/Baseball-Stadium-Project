@@ -1,12 +1,3 @@
-/*
-* date header file
-* 
-* initializes < and > operators, date variables, and print functions
-* 
-* date
-*
-*/
-
 #ifndef DATE_H
 #define DATE_H
 #include <iostream>
@@ -24,9 +15,9 @@ private:
     string monthName;
 
 public:
-    Date() : day(0),month(0),year(0),monthName("january"){} //default constructor
-    Date(unsigned, unsigned, unsigned);                     //3 parameter constructor
-    Date(const string &, unsigned, unsigned);               //3 parameter constructor
+    Date() : day(0),month(0),year(0),monthName("january"){}
+    Date(unsigned, unsigned, unsigned);
+    Date(const string &, unsigned, unsigned);
     Date addDays(int) const;
     void printNumeric() const;
     void printAlpha() const;

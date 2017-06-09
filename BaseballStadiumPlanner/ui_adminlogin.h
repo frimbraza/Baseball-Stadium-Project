@@ -52,7 +52,7 @@ public:
         pushButton->setGeometry(QRect(150, 110, 75, 23));
         label_LoginText = new QLabel(adminLogin);
         label_LoginText->setObjectName(QStringLiteral("label_LoginText"));
-        label_LoginText->setGeometry(QRect(50, 140, 301, 20));
+        label_LoginText->setGeometry(QRect(50, 140, 301, 40));
         QFont font;
         font.setPointSize(12);
         label_LoginText->setFont(font);
@@ -102,7 +102,7 @@ public:
         pushButton->setText(QApplication::translate("adminLogin", "Login", 0));
         label_LoginText->setText(QString());
         label_2->setText(QApplication::translate("adminLogin", "Username", 0));
-        label_3->setText(QApplication::translate("adminLogin", "Password", 0));
+        label_3->setText(QApplication::translate("adminLogin", "Password ", 0));
     } // retranslateUi
 
 };

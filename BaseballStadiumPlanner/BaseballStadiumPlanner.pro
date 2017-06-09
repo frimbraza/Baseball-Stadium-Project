@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     listwindow.cpp \
     tripwindow.cpp \
     adminlogin.cpp \
-    adminfuntion.cpp
+    adminfuntion.cpp \
+    graph.cpp
 
 HEADERS  += mainwindow.h \
     binarytree.h \
@@ -29,7 +30,9 @@ HEADERS  += mainwindow.h \
     tripwindow.h \
     adminlogin.h \
     adminfuntion.h \
-    souvenir.h
+    souvenir.h \
+    heap.h \
+    graph.h
 
 FORMS    += mainwindow.ui \
     listwindow.ui \

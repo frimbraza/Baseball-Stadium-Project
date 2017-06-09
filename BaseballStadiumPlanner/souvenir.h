@@ -1,10 +1,3 @@
-/*
-* Souvenir header file
-* 
-* initializes souvenir variables, set/get functions
-* 
-*/
-
 #ifndef SOUVENIR
 #define SOUVENIR
 #include <iostream>
@@ -17,7 +10,22 @@ public:
     void setName(std::string n){name = n;}
     void setPrice(double p){price = p;}
     std::string getName(){return name;}
-    std::string getPrice(){return to_string(price);}
+    std::string getPrice()
+    {
+        std::string stringPrice = std::to_string(price);
+//        std::string finalString;
+
+//        for(int i = 0; i < (int)stringPrice.size();++i)
+//        {
+//            if(stringPrice[i] == '.')
+//            {
+//                finalString = stringPrice.substr(0,i+3);
+//                break;
+//            }
+//        }
+
+        return stringPrice;
+    }
 
 private:
     std::string name;

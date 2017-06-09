@@ -1,12 +1,3 @@
-/*
-* Main window class file
-* 
-* contains () operator, sortList and on_button_clicked functions
-* 
-* main window is the first page of our interface
-*
-*/
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "listwindow.h"
@@ -22,14 +13,12 @@ MainWindow::MainWindow(QWidget *parent) :
     addSouvenirList();
 }
 
-//deconstruct ui
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
 //skips hidden 3 characters at beginning of text file
-//O(1)
 void MainWindow::SkipBOM(std::ifstream &in)         // Added 6/7/2017
 {
     char test[3] = {0};
@@ -43,8 +32,6 @@ void MainWindow::SkipBOM(std::ifstream &in)         // Added 6/7/2017
     in.seekg(0);
 }
 
-//intializes souvenir data into binary tree of souvenir class
-//O(n)
 void MainWindow::addSouvenirList()
 {
     ifstream inFile;
@@ -78,8 +65,6 @@ void MainWindow::addSouvenirList()
 
 }
 
-//intialize stadium data into binary tree of class stadiumInfo
-//O(n)
 void MainWindow::readFromFile()
 {
     ifstream inFile;
@@ -152,9 +137,6 @@ void MainWindow::readFromFile()
     // This is where the output is coming from. Take out later
     // stadiumList->displayInOrder();
 }
-
-//pass stadium info into listwindow ui
-//O(n)
 void MainWindow::on_ListButton_clicked()
 {
     //ListWindow listWindow;
@@ -188,8 +170,6 @@ void MainWindow::on_ListButton_clicked()
 }
 
 // 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
-//pass stadium info into trip window
-//O(n)
 void MainWindow::on_TripsButton_clicked()
 {
     tripWindow = new TripWindow(this);
@@ -212,8 +192,6 @@ void MainWindow::on_TripsButton_clicked()
     tripWindow->exec();
 }
 
-//open admin window
-//O(1)
 void MainWindow::on_AdminButton_clicked()
 {
     AdminLogin = new adminLogin(this);
@@ -223,8 +201,6 @@ void MainWindow::on_AdminButton_clicked()
 }
 
 
-//reintializes all binary trees using new data outfiled while in other ui windows
-//O(n)
 void MainWindow::on_UpdateButton_clicked()
 {
     delete stadiumList;

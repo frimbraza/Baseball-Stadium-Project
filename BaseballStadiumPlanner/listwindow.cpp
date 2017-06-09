@@ -1,12 +1,3 @@
-/*
-* list window class file
-* 
-* contains set and append functions, print functions and info strings, and vector lists
-* 
-* list window is a second level page of our interface
-*
-*/
-
 #include "listwindow.h"
 #include "ui_listwindow.h"
 
@@ -17,35 +8,62 @@ ListWindow::ListWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
-//deconstructor for ui
 ListWindow::~ListWindow()
 {
     delete ui;
 }
 
 //by stadium name 06/07/2017
-//O(1)
 void ListWindow::setStadiumNameSortedList(const vector<StadiumInfo>& otherList)
 {
     this->sortedStadiumNameList = otherList;
 }
 
 //by team name 06/07/2017
-//O(1)
 void ListWindow::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 {
     this->sortedList = otherList;
 }
 
-//by date opened
-//O(1)
 void ListWindow::setChronoList(const vector<StadiumInfo> &otherList)
 {
     this->chronoList = otherList;
 }
 
-//Append stadium object to table
-//O(1)
+/*
+void ListWindow::setAllStadiumsString(std::string input)
+{
+    AllStadInfo = input;
+}
+*/
+
+//void ListWindow::on_listAllStadiums_clicked()
+//{
+//    // Note that QT is really dumb, and has it's own QString. It won't take real strings
+//    //ui->listDisplayBox->setText(QString::fromStdString(AllStadInfo));
+//}
+
+
+//void ListWindow::on_listAmLeagueStadiums_clicked()
+//{
+//    //ui->listDisplayBox->setText("The list of AL stadiums go here.");
+//}
+
+//void ListWindow::on_listNLStadiums_clicked()
+//{
+//    //ui->listDisplayBox->setText("NL List.\n1) dodger\n2)Angel\n3)Test\n");
+//}
+
+//void ListWindow::on_ListGrassStadiums_clicked()
+//{
+//    //ui->listDisplayBox->setText("So Grassy. Much Grass.");
+//}
+
+//void ListWindow::on_ListChronologicalStadium_clicked()
+//{
+//    //ui->listDisplayBox->setText("List the stadiums chronolocially.");
+//}
+
 void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount()+1);
@@ -71,7 +89,6 @@ void ListWindow::appendStadium(int index, vector<StadiumInfo> theList)
 }
 
 //by stadium name 06/07/2017
-////O(n)
 void ListWindow::printByStadiumName()
 {
     initializeTableInfo();
@@ -82,8 +99,6 @@ void ListWindow::printByStadiumName()
     }
 }
 
-//prints American League stadiums
-//O(n)
 void ListWindow::printAL()
 {
     initializeTableInfo();
@@ -97,8 +112,7 @@ void ListWindow::printAL()
     }
 }
 
-//print all stadiums by team name
-//O(n)
+//by team name 06/07/2017
 void ListWindow::printAll()
 {
     initializeTableInfo();
@@ -109,8 +123,6 @@ void ListWindow::printAll()
     }
 }
 
-//print national league stadiums by team name
-//O(n)
 void ListWindow::printNL()
 {
     initializeTableInfo();
@@ -124,8 +136,6 @@ void ListWindow::printNL()
     }
 }
 
-//print stadiums that have grass
-//O(n)
 void ListWindow::printGrass()
 {
     initializeTableInfo();
@@ -139,8 +149,6 @@ void ListWindow::printGrass()
     }
 }
 
-//print stadiums by date opened
-//O(n)
 void ListWindow::printChrono()
 {
     initializeTableInfo();
@@ -151,8 +159,6 @@ void ListWindow::printChrono()
     }
 }
 
-//Create Table
-//O(1)
 void ListWindow::initializeTableInfo()
 {
     ui->TableWidget->setColumnCount(7);

@@ -14,18 +14,12 @@ adminFuntion::adminFuntion(QWidget *parent) :
 
 }
 
-//deconstructor
 adminFuntion::~adminFuntion()
 {
     delete ui;
 }
 
-/****************************************************
-void adminFuntion::readFromFile()
-_____________________________________________________
-Loading info to stadium list and souvenir list
--O(n)
-*****************************************************/
+//Loading info to stadium list and souvenir list
 void adminFuntion::readFromFile()
 {
     ifstream inFile;
@@ -100,24 +94,11 @@ void adminFuntion::readFromFile()
 
 }
 
-/****************************************************
-void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
-_____________________________________________________
-Sets a vector to another vector in parameter
--O(1)
-*****************************************************/
 void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 {
     this->sortedList = otherList;
 }
 
-
-/****************************************************
-void adminFuntion::addSouvenirList()
-_____________________________________________________
-intializes souveninr list
--O(n)
-*****************************************************/
 void adminFuntion::addSouvenirList()
 {
     ifstream inFile;
@@ -149,12 +130,8 @@ void adminFuntion::addSouvenirList()
 
 }
 
-/****************************************************
-void adminFuntion::saveAtNewSouvnierFile()
-_____________________________________________________
-Save changes to new file
--O(n)
-*****************************************************/
+
+//Save changes to new file
 void adminFuntion::saveAtNewSouvnierFile()
 {
     ofstream outFile;
@@ -172,17 +149,10 @@ void adminFuntion::saveAtNewSouvnierFile()
                 << souvenirList[i].getPrice();
         if(i <(int)souvenirList.size()-1)
             outFile << "\n";
-
     }
 
 }
 
-/****************************************************
-void adminFuntion::saveAtNewStadiumFile()
-_____________________________________________________
-Save changes to new file
--O(n)
-*****************************************************/
 void adminFuntion::saveAtNewStadiumFile()
 {
     ofstream outFile;
@@ -221,29 +191,23 @@ void adminFuntion::saveAtNewStadiumFile()
 
 
 //Display button
-//-O(1)
 void adminFuntion::on_Display_clicked()
 {
     displaySouvenir();
 }
 
-//Display stadium button
-//-O(1)
 void adminFuntion::on_Display_Stadium_List_1_clicked()
 {
     printAll();
 }
 
-//display stadium button
-//-O(1)
 void adminFuntion::on_Display_Stadium_List_clicked()
 {
     printAll();
 }
 
 
-//Initialize souvenir table
-//-O(n)
+//Inner display
 void adminFuntion::displaySouvenir()
 {
     initializeSouvenirTableInfo();
@@ -253,8 +217,6 @@ void adminFuntion::displaySouvenir()
 
 }
 
-//Intialize stadium table
-//-O(n)
 void adminFuntion::printAll()
 {
     initializeStadiumTableInfo();
@@ -266,8 +228,7 @@ void adminFuntion::printAll()
 }
 
 
-//Append souvenir to table
-//-O(1)
+//Append table
 void adminFuntion::appendSouvenir(int index, vector<Souvenir> theList)
 {
     ui->tableWidget->setRowCount(ui->tableWidget->rowCount()+1);
@@ -280,8 +241,6 @@ void adminFuntion::appendSouvenir(int index, vector<Souvenir> theList)
 
 }
 
-//Append stadium to table
-//-O(1)
 void adminFuntion::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->tableWidget->setRowCount(ui->tableWidget->rowCount()+1);
@@ -305,8 +264,7 @@ void adminFuntion::appendStadium(int index, vector<StadiumInfo> theList)
 
 }
 
-//Initialize souvenir table info
-//-O(1)
+//Initialize table info
 void adminFuntion::initializeSouvenirTableInfo()
 {
     ui->tableWidget->setColumnCount(2);
@@ -318,8 +276,6 @@ void adminFuntion::initializeSouvenirTableInfo()
     ui->tableWidget->setRowCount(0);
 }
 
-//Initialize stadium table info
-//-O(1)
 void adminFuntion::initializeStadiumTableInfo()
 {
     ui->tableWidget->setColumnCount(7);
@@ -332,7 +288,6 @@ void adminFuntion::initializeStadiumTableInfo()
 }
 
 //Souvenir Functions
-//-O(n)
 void adminFuntion::on_Add_Souvenir_clicked()
 {
     QString name, price;
@@ -380,8 +335,6 @@ void adminFuntion::on_Add_Souvenir_clicked()
 
 }
 
-//delete souvenir from list
-//-O(n)
 void adminFuntion::on_Delete_Souvenir_clicked()
 {
     QString name;
@@ -416,8 +369,6 @@ void adminFuntion::on_Delete_Souvenir_clicked()
     displaySouvenir();
 }
 
-//Change souvenir price
-//-O(n)
 void adminFuntion::on_Change_Souvenir_clicked()
 {
     QString name, price;
@@ -481,8 +432,7 @@ void adminFuntion::on_Change_Souvenir_clicked()
 
 }
 
-//Create new team
-//-O(n)
+//New Team Function
 void adminFuntion::on_AddNewTeam_clicked()
 {
     QString team, stadium;
@@ -544,8 +494,8 @@ void adminFuntion::on_AddNewTeam_clicked()
 
 }
 
-//add new stadium to list
-//-O(n)
+
+
 void adminFuntion::on_AddNewStadium_clicked()
 {
     std::string stadiumName, teamName, street,
@@ -574,9 +524,16 @@ void adminFuntion::on_AddNewStadium_clicked()
     else
         type = false;
 
+    string month, day, openDate, year;
+    month = ui->comboBox_Month->currentText().toStdString();
+    day = ui->comboBox_Day->currentText().toStdString();
+    year = ui->lineEdit_Year->text().toStdString();
+
+
+
     if((stadiumName.size() == 0) || (teamName.size() == 0)
             ||(street.size() == 0)||(cityInfo.size() == 0)
-            ||(phoneNum.size() == 0))
+            ||(phoneNum.size() == 0)||(year.size() == 0)||(capacity.size() == 0))
     {
         QMessageBox msgBox;
 
@@ -587,29 +544,32 @@ void adminFuntion::on_AddNewStadium_clicked()
 
     }
 
-
-
     for(int i = 0; i < (int)capacity.size();++i)
     {
         if(!isdigit(capacity[i]))
+        {
+            QMessageBox msgBox;
+
+            msgBox.setText("Capacity should be a number");
+            msgBox.exec();
+
+
             return;
-    }
-    if(capacity.size() == 0)
-    {
-        capacity = "0";
+        }
     }
 
-    string month, day, openDate, year;
-    month = ui->comboBox_Month->currentText().toStdString();
-    day = ui->comboBox_Day->currentText().toStdString();
-    year = ui->lineEdit_Year->text().toStdString();
     for(int i =0; i < (int)year.size();++i)
     {
         if(!isdigit(year[i]))
+        {
+            QMessageBox msgBox;
+
+            msgBox.setText("Year should be a number");
+            msgBox.exec();
+
             return;
+        }
     }
-    if(year.size() == 0)
-        year = "0";
     openDate = month + " " + day + " " + year;
 
     Date date;
