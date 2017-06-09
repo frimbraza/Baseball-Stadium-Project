@@ -1,8 +1,8 @@
 Baseball cap
 25.990000
 Baseball bat
-35.350000
+5.000000
 Team pennant
-10.000000
+12.990000
 Autographed baseball
 19.990000
