@@ -164,7 +164,9 @@ void adminFuntion::saveAtNewSouvnierFile()
     for(int i=0; i<(int)souvenirList.size();i++)
     {
         outFile << souvenirList[i].getName() <<endl
-                << souvenirList[i].getPrice() <<endl;
+                << souvenirList[i].getPrice();
+        if(i <(int)souvenirList.size()-1)
+            outFile << "\n";
 
     }
 
