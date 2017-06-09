@@ -1,3 +1,10 @@
+/*listwindow header file
+* 
+*contains set stadium lists, print stadiums, and vector lists
+* 
+* 
+*/
+
 #ifndef LISTWINDOW_H
 #define LISTWINDOW_H
 
