@@ -1,3 +1,12 @@
+/*
+* date header file
+* 
+* initializes < and > operators, date variables, and print functions
+* 
+* date
+*
+*/
+
 #ifndef DATE_H
 #define DATE_H
 #include <iostream>
