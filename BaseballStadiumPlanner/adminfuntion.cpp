@@ -524,10 +524,16 @@ void adminFuntion::on_AddNewStadium_clicked()
     else
         type = false;
 
+    string month, day, openDate, year;
+    month = ui->comboBox_Month->currentText().toStdString();
+    day = ui->comboBox_Day->currentText().toStdString();
+    year = ui->lineEdit_Year->text().toStdString();
+
+
 
     if((stadiumName.size() == 0) || (teamName.size() == 0)
             ||(street.size() == 0)||(cityInfo.size() == 0)
-            ||(phoneNum.size() == 0))
+            ||(phoneNum.size() == 0)||(year.size() == 0)||(capacity.size() == 0))
     {
         QMessageBox msgBox;
 
@@ -541,24 +547,29 @@ void adminFuntion::on_AddNewStadium_clicked()
     for(int i = 0; i < (int)capacity.size();++i)
     {
         if(!isdigit(capacity[i]))
+        {
+            QMessageBox msgBox;
+
+            msgBox.setText("Capacity should be a number");
+            msgBox.exec();
+
+
             return;
-    }
-    if(capacity.size() == 0)
-    {
-        capacity = "0";
+        }
     }
 
-    string month, day, openDate, year;
-    month = ui->comboBox_Month->currentText().toStdString();
-    day = ui->comboBox_Day->currentText().toStdString();
-    year = ui->lineEdit_Year->text().toStdString();
     for(int i =0; i < (int)year.size();++i)
     {
         if(!isdigit(year[i]))
+        {
+            QMessageBox msgBox;
+
+            msgBox.setText("Year should be a number");
+            msgBox.exec();
+
             return;
+        }
     }
-    if(year.size() == 0)
-        year = "0";
     openDate = month + " " + day + " " + year;
 
     Date date;

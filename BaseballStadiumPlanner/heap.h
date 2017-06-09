@@ -262,7 +262,7 @@ T Heap<T, C>::remove()
     if (!isEmpty())
     {
         top = *HeapTree[0];
-        T tempValue = *HeapTree[0];
+//        T tempValue = *HeapTree[0];
         delete HeapTree[0];
         HeapTree[0] = HeapTree[lastNodeLocation - 1];	// set root to Last filled Node
         HeapTree[lastNodeLocation - 1] = 0;
