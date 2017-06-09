@@ -8,7 +8,7 @@ March 31, 1998
 NL
 grass
 Turner Field 
-Arizona Diamondbacks
+Atlanta Braves
 755 Hank Aaron Drive
 Atlanta, GA 30315
 (404) 522-7630
@@ -268,3 +268,12 @@ March 30, 2008
 41418
 NL
 grass
+
+
+
+
+
+January 1, 0
+0
+AL
+no grass

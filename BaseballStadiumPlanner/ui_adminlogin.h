@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'adminlogin.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -42,20 +42,23 @@ public:
     {
         if (adminLogin->objectName().isEmpty())
             adminLogin->setObjectName(QStringLiteral("adminLogin"));
-        adminLogin->resize(291, 169);
+        adminLogin->resize(380, 189);
         label = new QLabel(adminLogin);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(80, 10, 141, 31));
+        label->setGeometry(QRect(120, 0, 141, 31));
         label->setAlignment(Qt::AlignCenter);
         pushButton = new QPushButton(adminLogin);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(110, 120, 75, 23));
+        pushButton->setGeometry(QRect(150, 110, 75, 23));
         label_LoginText = new QLabel(adminLogin);
         label_LoginText->setObjectName(QStringLiteral("label_LoginText"));
-        label_LoginText->setGeometry(QRect(50, 150, 201, 20));
+        label_LoginText->setGeometry(QRect(50, 140, 301, 20));
+        QFont font;
+        font.setPointSize(12);
+        label_LoginText->setFont(font);
         layoutWidget = new QWidget(adminLogin);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 50, 189, 22));
+        layoutWidget->setGeometry(QRect(90, 40, 189, 24));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -71,7 +74,7 @@ public:
 
         layoutWidget1 = new QWidget(adminLogin);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(50, 80, 187, 22));
+        layoutWidget1->setGeometry(QRect(90, 70, 187, 24));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
