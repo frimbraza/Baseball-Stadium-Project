@@ -1,10 +1,3 @@
-/*listwindow header file
-* 
-*contains set stadium lists, print stadiums, and vector lists
-* 
-* 
-*/
-
 #ifndef LISTWINDOW_H
 #define LISTWINDOW_H
 
@@ -28,20 +21,30 @@ public:
 
     void setStadiumNameSortedList(const vector<StadiumInfo>& otherList);// Added 6/7/2017
 
-    void setSortedStadiumList(const vector<StadiumInfo>& sortedList);//construct list by team name
-    void setChronoList(const vector<StadiumInfo>& otherList);//construct list by date opened
+    void setSortedStadiumList(const vector<StadiumInfo>& sortedList);
+    void setChronoList(const vector<StadiumInfo>& otherList);
 //    void setAllStadiumsString(std::string input);
 
-    void appendStadium(int index, vector<StadiumInfo> theList);//add stadium to list
+    void appendStadium(int index, vector<StadiumInfo> theList);
 
 public slots:
-    void printByStadiumName();      //construct list by stadium name
-    void printAL();                 
-    void printAll();                
+    void printByStadiumName();      // Added 6/7/2017
+    void printAL();
+    void printAll();
     void printNL();
     void printGrass();
     void printChrono();
 
+//private slots:
+//    void on_listAllStadiums_clicked();
+
+//    void on_listAmLeagueStadiums_clicked();
+
+//    void on_listNLStadiums_clicked();
+
+//    void on_ListGrassStadiums_clicked();
+
+//    void on_ListChronologicalStadium_clicked();
 
 private:
     Ui::ListWindow *ui;

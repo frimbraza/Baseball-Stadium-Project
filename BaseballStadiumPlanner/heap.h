@@ -51,6 +51,7 @@ public:
 #endif // !HEAP
 
 /********************************************************************
+* O(n) where n is the heaps height
 * upHeap : Class Heap
 *___________________________________________________________________
 * This up-heaps(sorts) the heap tree from the location of a node
@@ -83,6 +84,7 @@ void Heap<T, C>::upHeap(int nodeLoc)
 }
 
 /********************************************************************
+* O(n) where n is the number of recursions(height)
 * downHeap : Class Heap
 *___________________________________________________________________
 * This down-heaps(sorts) the heap tree from the location of a node
@@ -140,6 +142,7 @@ void Heap<T, C>::downHeap(int nodeLoc)
 }
 
 /********************************************************************
+* O(n) where n is the number of elements in the old tree
 * addLevel : Class Heap
 *___________________________________________________________________
 * This adds a level to the heap tree and takes to account the
@@ -171,6 +174,7 @@ void Heap<T, C>::addLevel()
 }
 
 /********************************************************************
+* O(C)
 * Heap : Class Heap
 *___________________________________________________________________
 * This is the constructor for the heap class. It initializes an
@@ -197,6 +201,7 @@ Heap<T, C>::Heap()
 }
 
 /********************************************************************
+* O(n) where n is the number of elements to remove
 * ~Heap : Class Heap
 *___________________________________________________________________
 * This is the destructor for the heap class. It removes from the
@@ -219,6 +224,7 @@ Heap<T, C>::~Heap()
 }
 
 /********************************************************************
+* O(n) where n is the height of the tree to search
 * Insert : Class Heap
 *___________________________________________________________________
 * This inserts the value into the heap tree array. If the tree is
@@ -245,6 +251,7 @@ void Heap<T, C>::insert(T value)
 }
 
 /********************************************************************
+* O(n) where n is the height of the tree
 * Remove : Class Heap
 *___________________________________________________________________
 * This removes the top of the heap and resorts the heap tree.
@@ -273,6 +280,7 @@ T Heap<T, C>::remove()
 }
 
 /********************************************************************
+* O(n) where n is how many elements are in the tree
 * printPreOrder : Class Heap
 *___________________________________________________________________
 * Prints the heap in pre-order, starting at the root.
@@ -294,6 +302,7 @@ void Heap<T, C>::printPreOrder(int start)
 }
 
 /********************************************************************
+* O(n) where n is the number of elements in the heap
 * printHeapArray : Class Heap
 *___________________________________________________________________
 * This prints the heap tree in the order that the array is in.

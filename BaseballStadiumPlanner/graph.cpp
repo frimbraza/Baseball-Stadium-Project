@@ -1,14 +1,19 @@
 #include "graph.h"
 
 
-/* O(n) where n is the number of vertices
- * Graph default constructor
- *
- * initializes graph with a selected file edge list
- * and creates a dijkstra's array for each city.
- *
- * no paramaters
- */
+/********************************************************************
+* O(n^2) where n is the number of vertices
+* Graph : Class Graph
+*___________________________________________________________________
+* The graph constructor that initializes with a vector of strings
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	vertices : a vector of unique strings
+*
+* POST-CONDITIONS
+*	Graph should be instantiated with it's vertice list created with
+*	the size equal to the number of vertices, all initialized to null.
+********************************************************************/
 Graph::Graph()
 {
     vector<vector<string>> edgeHolder;
@@ -65,10 +70,19 @@ Graph::Graph()
 
 }
 
-/* O(n) where n is the number of vertices
- * An overloaded constructor
- *
- */
+/********************************************************************
+* O(n) where n is the number of vertices
+* Graph : Class Graph
+*___________________________________________________________________
+* The graph constructor that initializes with a vector of strings
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	vertices : a vector of unique strings
+*
+* POST-CONDITIONS
+*	Graph should be instantiated with it's vertice list created with
+*	the size equal to the number of vertices, all initialized to null.
+********************************************************************/
 Graph::Graph(const vector<string>& vertices)
 {
     verticeList = vertices;
@@ -91,6 +105,22 @@ Graph::Graph(const vector<string>& vertices)
     }
 }
 
+/********************************************************************
+* O(n)where n is the number of vertices
+* addEdge : Class Graph
+*___________________________________________________________________
+* This function adds edge information into adjaceny list array and
+*	the edge list.
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	src : the source vertice of the edge
+*	dest : the destination vertice of the edge
+*	dist : the distance between the two vertices
+*
+* POST-CONDITIONS
+*	The adjacency list array and the edge list vector should be
+*	filled with the input edge's infomration
+********************************************************************/
 void Graph::addEdge(string src, string dest, int dist)
 {
     int srcIndex, destIndex;
@@ -114,6 +144,18 @@ void Graph::addEdge(string src, string dest, int dist)
     edgeList.push_back(theEdge);
 }
 
+/********************************************************************
+* O(n) where is the number of adjacency lists
+* printAdjList : Class Graph
+*___________________________________________________________________
+* This function prints the adjacency list array for each vertice
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	none
+*
+* POST-CONDITIONS
+*	The adjacency list array information should be printed to console
+********************************************************************/
 void Graph::printAdjList()
 {
     for (int i = 0; i < (int)verticeList.size(); ++i)
@@ -130,11 +172,22 @@ void Graph::printAdjList()
     }
 }
 
+/* O(n) where n is the number of vertices
+ * Overloaded create dijkstras function.
+ *
+ * Finds the string associated with the index, and sends string
+ * Also calls createDijkstras
+ */
 void Graph::createDijkstras(int start)
 {
     createDijkstras(verticeList[start]);
 }
 
+/* O(n) where n is the number of vertices
+ * Creates dijkstras arrays. Those are max distance and path arrays.
+ *
+ * Needs a string paramater to create a custom dijkstra object for the string
+ */
 void Graph::createDijkstras(string start)
 {
     // int* maxDistArray = new int[verticeList.size()];					// Max Distance Array
@@ -195,24 +248,24 @@ void Graph::createDijkstras(string start)
         }
     }
 
-    // printDijkstras(start);
-
-    // Printing the information in a formatted output to console
-    /*
-    for (int i = 0; i < (int)verticeList.size(); ++i)
-    {
-        cout << verticeList[i] << " " << maxDistArray[i] << " ";
-        cout << "{ " << pathArray[i][0];
-        for (int j = 1; j < (int)pathArray[i].size(); ++j)
-            cout << ", " << pathArray[i][j];
-        cout << " }" << endl;
-    }
-    */
-    // delete[] maxDistArray;
-    // delete[] pathArray;
     delete[] visitedNodes;
 }
 
+
+/********************************************************************
+* O(n) where n is the number of vertices
+* printDijkstras : Class Graph
+*___________________________________________________________________
+* This function calculates the minimal distance to each vertice from
+*	a starting vertice and the path from it to console.
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	start : The vertice to start with.
+*
+* POST-CONDITIONS
+*	The minimal distance and path from the starting vertice of every
+*	vertice should be print to console.
+********************************************************************/
 void Graph::printDijkstras(string start)
 {
     int thisIndex;
@@ -227,6 +280,21 @@ void Graph::printDijkstras(string start)
     printDijkstras(thisIndex);
 }
 
+
+/********************************************************************
+* O(n) where n is the number of vertices
+* printDijkstras : Class Graph
+*___________________________________________________________________
+* This function calculates the minimal distance to each vertice from
+*	a starting vertice and the path from it to console.
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	start : The vertice to start with.
+*
+* POST-CONDITIONS
+*	The minimal distance and path from the starting vertice of every
+*	vertice should be print to console.
+********************************************************************/
 void Graph::printDijkstras(int start)
 {
     for (int i = 0; i < (int)verticeList.size(); ++i)
@@ -239,6 +307,20 @@ void Graph::printDijkstras(int start)
     }
 }
 
+/********************************************************************
+* O(n^2) where n is the number of vertices
+* printMST : Class Graph
+*___________________________________________________________________
+* This function calculates the edges that make up a minimum
+*	spanning tree of the graph. Also prints the total weight of the
+*	edges in the MST
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	none
+*
+* POST-CONDITIONS
+*	The minimum spanning tree's edges are printed to console
+********************************************************************/
 void Graph::printMST()
 {
     vector<Edge> MSTfinal;							// The Final MST
@@ -284,6 +366,16 @@ void Graph::printMST()
     delete[] clusterList;
 }
 
+/* O(n^2log(n))
+ * shortest travel finds the shortest distance of a trip
+ * while visiting all selected cities.
+ *
+ *
+ * Input:
+ *  vector<string> selectedCities : to hold the cities required
+ *  string start : where to start in the search
+ *  vector<string> the return container for the path
+ */
 void Graph::shortestTravel(vector<string> selectedCities, string start, vector<string>& shortestPath)	// return a vector of the sorted cities
 {
     int totalDistance = 0; // some large number
@@ -321,17 +413,6 @@ void Graph::shortestTravel(vector<string> selectedCities, string start, vector<s
         }
         if (!possibleJumps.empty())
         {
-            // cout << "Shouldn't reach here" << endl; // Remove this later
-//            for (int i = 0; i < (int)selectedCities.size(); ++i)
-//            {
-//                if (!visitedNodes[i])
-//                    possibleJumps.push_back(getIndex(selectedCities[i], verticeList));
-//            }
-//            if (possibleJumps.empty())
-//            {
-//                cout << "Your Done. Should never reach here." << endl;
-//                break;
-//            }
             int lowestCityDist = 10000;
             int lowestCityIndex;
             for (int i = 0; i < (int)possibleJumps.size(); ++i)
@@ -355,30 +436,19 @@ void Graph::shortestTravel(vector<string> selectedCities, string start, vector<s
         else
         {
             break;
-            /*
-            int lowestCityDist = 100000;
-            int lowestCityIndex;
-            for (int i = 0; i < (int)possibleJumps.size(); ++i)
-            {
-                if (currentMaxDistArray[possibleJumps[i]] < lowestCityDist)
-                {
-                    lowestCityDist = currentMaxDistArray[possibleJumps[i]];
-                    lowestCityIndex = possibleJumps[i];
-                }
-            }
-            path.push_back(verticeList[lowestCityIndex]);
-            totalDistance += lowestCityDist;
-            visitedNodes[getIndex(verticeList[lowestCityIndex], selectedCities)] = true;
-            currentIndex = lowestCityIndex;
-            */
         }
-
-
     }
 
     shortestPath = path;
 }
 
+/*
+ * O(1)
+ * returns the distance between two cities
+ *
+ * city1: int index of first
+ * city2: int index of second
+ */
 int Graph::returnDist(int city1, int city2)
 {
     int distance = dijInfoArray[city1].maxDistArray[city2];
@@ -400,6 +470,23 @@ void Graph::addAdjEdgesToFrontier(Heap<Edge, EdgeComparator>& frontier,
     }
 }
 
+/*********************************************************************
+ * O(n) where n is the size of the current clusters
+* formCycle : Class Graph
+*___________________________________________________________________
+* This function checks if an edge forms a cycle in the based off of
+*	a list of clusters
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	clusterList : a cluster is collection of connected vertices and
+*				  this list holds that information for each vertice
+*	edge : This is the edge that will be added to the minimum
+*		   spanning tree that must be checked if it forms a cycle
+*
+* POST-CONDITIONS
+*	Returns true if a cycle is formed by the addition of an edge.
+*	Returns false if no cycle is formed.
+********************************************************************/
 bool Graph::formCycle(vector<int> clusterList[], Edge edge)
 {
     for (int i = 0; i < (int)clusterList[edge.src].size(); ++i)
@@ -415,6 +502,20 @@ bool Graph::formCycle(vector<int> clusterList[], Edge edge)
     return false;
 }
 
+/********************************************************************
+* updateCluster : Class Graph
+*___________________________________________________________________
+* Updates the clusterList with the addition of an edge
+*___________________________________________________________________
+* PRE-CONDITIONS
+*	clusterList : a cluster is collection of connected vertices and
+*				  this list holds that information for each vertice
+*	edge : This is the edge that will be added to the minimum
+*		   spanning tree, and therefore the cluster list as it will
+*		   form a new cluster or connect previous clusters.
+* POST-CONDITIONS
+*	The cluster list should be updated with the edge
+********************************************************************/
 void Graph::updateCluster(vector<int> clusterList[], Edge edge)
 {
     vector<int> srcCluster = clusterList[edge.src];
