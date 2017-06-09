@@ -27,8 +27,8 @@ Kauffman Stadium,Wrigley Field,415
 Kauffman Stadium,US Cellular Stadium,415
 Kauffman Stadium,Busch Stadium,235
 Target Field,Miller Park,300
-Target Field,Brusch Stadium,465
-Brusch Stadium,Great America Ball Park,31
+Target Field,Busch Stadium,465
+Busch Stadium,Great America Ball Park,31
 Miller Park,Rogers Centre,430
 Miller Park,Wringley Field,80
 Wrigley Field,Comerica Park,240
