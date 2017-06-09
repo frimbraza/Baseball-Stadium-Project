@@ -1,3 +1,13 @@
+/*Trip window header file
+* 
+* Trip window is a second level page that opens when the user
+* presses the plan a trip button
+* 
+* initializes vector lists, setLists/append/initialize table/ on_button_clicked functions
+* 
+*/
+
+
 #ifndef TRIPWINDOW_H
 #define TRIPWINDOW_H
 // whole thing // 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -55,17 +65,24 @@ private slots:
     void on_addSouvButton_clicked();
 
 private:
+    //tripwindow ui
     Ui::TripWindow *ui;
+    
+    //vector lists
     vector<StadiumInfo> original;
-
     vector<StadiumInfo> stadList;
     vector<StadiumInfo> customList;
-
+    
+    //list of souvenirs
     vector<Souvenir> souvList;
+    
+    //boolean variable that checks whether souvenir list has been initialized
     bool souvListInitialized;
 
+    //keeps track of the total price of the souvenirs
     double totalPrice;
 
+    //travel map of all the stadiums
     Graph travelMap;
 
 };
