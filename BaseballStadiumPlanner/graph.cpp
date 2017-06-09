@@ -1,5 +1,14 @@
 #include "graph.h"
 
+
+/* O(n) where n is the number of vertices
+ * Graph default constructor
+ *
+ * initializes graph with a selected file edge list
+ * and creates a dijkstra's array for each city.
+ *
+ * no paramaters
+ */
 Graph::Graph()
 {
     vector<vector<string>> edgeHolder;
@@ -56,6 +65,10 @@ Graph::Graph()
 
 }
 
+/* O(n) where n is the number of vertices
+ * An overloaded constructor
+ *
+ */
 Graph::Graph(const vector<string>& vertices)
 {
     verticeList = vertices;
@@ -309,17 +322,17 @@ void Graph::shortestTravel(vector<string> selectedCities, string start, vector<s
         if (!possibleJumps.empty())
         {
             // cout << "Shouldn't reach here" << endl; // Remove this later
-            for (int i = 0; i < (int)selectedCities.size(); ++i)
-            {
-                if (!visitedNodes[i])
-                    possibleJumps.push_back(getIndex(selectedCities[i], verticeList));
-            }
-            if (possibleJumps.empty())
-            {
-                cout << "Your Done. Should never reach here." << endl;
-                break;
-            }
-            int lowestCityDist = 100000;
+//            for (int i = 0; i < (int)selectedCities.size(); ++i)
+//            {
+//                if (!visitedNodes[i])
+//                    possibleJumps.push_back(getIndex(selectedCities[i], verticeList));
+//            }
+//            if (possibleJumps.empty())
+//            {
+//                cout << "Your Done. Should never reach here." << endl;
+//                break;
+//            }
+            int lowestCityDist = 10000;
             int lowestCityIndex;
             for (int i = 0; i < (int)possibleJumps.size(); ++i)
             {
@@ -332,6 +345,8 @@ void Graph::shortestTravel(vector<string> selectedCities, string start, vector<s
             for (int i = 1; i < (int)currentPathArray[lowestCityIndex].size(); ++i)
             {
                 path.push_back(currentPathArray[lowestCityIndex][i]);
+                if(existInList(selectedCities,currentPathArray[lowestCityIndex][i]))    // added these 2
+                    visitedNodes[getIndex(currentPathArray[lowestCityIndex][i],selectedCities)] = true;          // added these 2
             }
             totalDistance += lowestCityDist;
             visitedNodes[getIndex(verticeList[lowestCityIndex], selectedCities)] = true;
@@ -459,6 +474,7 @@ void Graph::initCityList(vector<string> & cityList, const vector<vector<string>>
             cityList.push_back(edgeList[i][1]);
     }
 }
+
 
 bool Graph::existInList(const vector<string>& list, string value)
 {

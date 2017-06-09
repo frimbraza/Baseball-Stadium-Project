@@ -1,5 +1,5 @@
 Chase Field
-Arizona Diamondbacks
+Atlanta Braves
 401 East Jefferson Street
 Phoenix, AZ 85004
 (602) 462-6500
@@ -8,7 +8,7 @@ March 31, 1998
 NL
 grass
 Turner Field 
-Atlanta Braves
+Arizona Diamondbacks
 755 Hank Aaron Drive
 Atlanta, GA 30315
 (404) 522-7630
@@ -268,12 +268,12 @@ March 30, 2008
 41418
 NL
 grass
+k
+k
+z
 a
-v
-b
-v
-c
-January 1, 1
-1
+k
+January 1, 2017
+40000
 AL
 grass
