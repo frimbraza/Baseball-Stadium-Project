@@ -22,12 +22,14 @@ TripWindow::TripWindow(QWidget *parent) :
 }
 
 //destructor
+//Big O: O(1)
 TripWindow::~TripWindow()
 {
     delete ui;
 }
 
 //set function
+//Big O: O(1)
 void TripWindow::setSortedStadList(const vector<StadiumInfo> &other)
 {
     stadList = other;
@@ -37,6 +39,7 @@ void TripWindow::setSortedStadList(const vector<StadiumInfo> &other)
 }
 
 //set function
+//Big O: O(1)
 void TripWindow::setSouvList(const vector<Souvenir> &other)
 {
     souvList = other;
@@ -45,6 +48,7 @@ void TripWindow::setSouvList(const vector<Souvenir> &other)
 }
 
 //append stadiums
+//Big O: O(n)
 void TripWindow::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount() + 1);
@@ -63,6 +67,7 @@ void TripWindow::appendStadium(int index, vector<StadiumInfo> theList)
 }
 
 //append souvenirs
+//Big O: O(n)
 void TripWindow::appendSouv(int index)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount() + 1);
@@ -80,6 +85,7 @@ void TripWindow::on_customTripButton_clicked()
 }
 
 //initialize list of stadiums table
+//Big O: O(1)
 void TripWindow::initializeTableInfo()
 {
     ui->TableWidget->setColumnCount(3);
@@ -92,6 +98,7 @@ void TripWindow::initializeTableInfo()
 }
 
 //initialize souvenir table
+//Big O: O(1)
 void TripWindow::initializeSouvTable()
 {
     souvListInitialized = true;
@@ -106,6 +113,7 @@ void TripWindow::initializeSouvTable()
 }
 
 //executes on add to trip
+//Big O: O(1)
 void TripWindow::on_addToTripButton_clicked()
 {
     int index = ui->comboBox->currentIndex();
@@ -120,6 +128,7 @@ void TripWindow::on_addToTripButton_clicked()
 }
 
 //executes on reset
+//Big O: O(1)
 void TripWindow::on_resetListButton_clicked()
 {
     stadList = original;
@@ -130,6 +139,7 @@ void TripWindow::on_resetListButton_clicked()
 }
 
 //executes on design a trip to all stadiums
+//Big O: O(1)
 void TripWindow::on_allTripButton_clicked()
 {
     initializeTableInfo();
@@ -140,6 +150,7 @@ void TripWindow::on_allTripButton_clicked()
 }
 
 //executes on design a trip to AL stadiums
+//Big O: O(1)
 void TripWindow::on_alTripButton_clicked()
 {
     initializeTableInfo();
@@ -151,6 +162,7 @@ void TripWindow::on_alTripButton_clicked()
 }
 
 //executes on design a trip to NL stadiums
+//Big O: O(1)
 void TripWindow::on_nlTripButton_clicked()
 {
     initializeTableInfo();
@@ -162,6 +174,7 @@ void TripWindow::on_nlTripButton_clicked()
 }
 
 //executes on design a trip to custom stadiums
+//Big O: O(1)
 void TripWindow::on_printCustomButton_clicked()
 {
     initializeTableInfo();
@@ -172,6 +185,7 @@ void TripWindow::on_printCustomButton_clicked()
 }
 
 //executes on add souvenir
+//Big O: O(1)
 void TripWindow::on_addSouvButton_clicked()
 {
     if(!souvListInitialized)
