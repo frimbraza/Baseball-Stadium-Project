@@ -1,6 +1,11 @@
+Angels Stadium of Anaheim,Target Field,1500
+Angels Stadium of Anaheim,PETCO Park,110
 AT&T Park,Safeco Field,680
 AT&T Park,Dodger Stadium,340
 AT&T Park,Chase Field,650
+O.co Coliseum,Safeco Field,680
+O.co Coliseum,Dodger Stadium,340
+O.co Coliseum,Chase Field,650
 Dodger Stadium,Target Field,1500
 Dodger Stadium,PETCO Park,110
 Safeco Field,Rogers Center,2070
@@ -19,6 +24,7 @@ Minute Maid Park,Busch Stadium,680
 Minute Maid Park,Tropicana Field,790
 Minute Maid Park,Marlins Park,965
 Kauffman Stadium,Wrigley Field,415
+Kauffman Stadium,US. Cellular Stadium,415
 Kauffman Stadium,Busch Stadium,235
 Target Field,Miller Park,300
 Target Field,Brusch Stadium,465
@@ -32,15 +38,22 @@ Great American Ballpark,PNC Park,260
 Great American Ballpark,Turner Field,375
 Great American Ballpark,Tropicana Field,790
 Turner Field,Nationals Park,560
+Turner Field,Camden Yards,560
 Turner Field,Marlins Park,600
 Progressive Field,PNC Park,115
 Rogers Center,Fenway Park,430
 Rogers Center,PNC Park,225
 PNC Park,Yankee Stadium,315
+PNC Park,Citi Field,315
 PNC Park,Nationals Park,195
+PNC Park,Camden Yards,195
 Tropicana Field,Marlins Park,210
 Marlins Park,Nationals Park,930
+Marlins Park,Camden Yards,930
 Marlins Park,Fenway Park,1255
 Nationals Park,Citizens Bank Park,90
+Camden Yards,Citizens Bank Park,90
 Citizens Bank Park,Yankee Stadium,8
+Citizens Bank Park,Citi Field,8
 Yankee Stadium,Fenway Park,195
+Citi Field,Fenway Park,195
