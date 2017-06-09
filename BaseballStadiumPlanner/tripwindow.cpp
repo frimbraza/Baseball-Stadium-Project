@@ -16,10 +16,18 @@ TripWindow::TripWindow(QWidget *parent) :
     }
 }
 
+
+//destructor
+//Big O: O(1)
+
 TripWindow::~TripWindow()
 {
     delete ui;
 }
+
+
+//set function
+//Big O: O(1)
 
 void TripWindow::setSortedStadList(const vector<StadiumInfo> &other)
 {
@@ -29,12 +37,19 @@ void TripWindow::setSortedStadList(const vector<StadiumInfo> &other)
         ui->comboBox->addItem(QString::fromStdString(stadList[i].getName()));
 }
 
+
+//set function
+//Big O: O(1)
+
 void TripWindow::setSouvList(const vector<Souvenir> &other)
 {
     souvList = other;
     for(int i = 0; i < (int)souvList.size(); ++i)
         ui->comboBox_2->addItem(QString::fromStdString(souvList[i].getName()));
 }
+
+//append stadiums
+//Big O: O(n)
 
 void TripWindow::appendStadium(int index, vector<StadiumInfo> theList)
 {
@@ -52,6 +67,9 @@ void TripWindow::appendStadium(int index, vector<StadiumInfo> theList)
     else
         ui->TableWidget->setItem(n, 2, new QTableWidgetItem("AL"));
 }
+
+//append souvenirs
+//Big O: O(n)
 
 void TripWindow::appendFirst(string name, int totalDistance, string league)
 {
@@ -75,6 +93,7 @@ void TripWindow::appendStad2(int index1,int index2, const vector<string> &theLis
     // come back here, for third item
 }
 
+
 void TripWindow::appendSouv(int index)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount() + 1);
@@ -91,6 +110,10 @@ void TripWindow::on_customTripButton_clicked()
 
 }
 
+
+//initialize list of stadiums table
+//Big O: O(1)
+
 void TripWindow::initializeTableInfo()
 {
     ui->TableWidget->setColumnCount(3);
@@ -101,6 +124,9 @@ void TripWindow::initializeTableInfo()
 
     ui->TableWidget->setRowCount(0);
 }
+
+//initialize souvenir table
+//Big O: O(1)
 
 void TripWindow::initializeSouvTable()
 {
@@ -115,7 +141,12 @@ void TripWindow::initializeSouvTable()
     ui->TableWidget->setRowCount(0);
 }
 
+
+//executes on add to trip
+//Big O: O(1)
+
 // 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 void TripWindow::on_addToTripButton_clicked()
 {
     int index = ui->comboBox->currentIndex();
@@ -130,6 +161,9 @@ void TripWindow::on_addToTripButton_clicked()
 }
 
 
+//executes on reset
+//Big O: O(1)
+
 void TripWindow::on_resetListButton_clicked()
 {
     stadList = original;
@@ -138,6 +172,10 @@ void TripWindow::on_resetListButton_clicked()
     for(int i = 0; i < (int)stadList.size(); ++i)
         ui->comboBox->addItem(QString::fromStdString(stadList[i].getName()));
 }
+
+
+//executes on design a trip to all stadiums
+//Big O: O(1)
 
 void TripWindow::on_allTripButton_clicked()
 {
@@ -154,6 +192,9 @@ void TripWindow::on_allTripButton_clicked()
 //        appendStadium(i, original);
 //    }
 }
+
+//executes on design a trip to AL stadiums
+//Big O: O(1)
 
 void TripWindow::on_alTripButton_clicked()
 {
@@ -188,6 +229,10 @@ void TripWindow::on_alTripButton_clicked()
 //    }
 }
 
+
+//executes on design a trip to NL stadiums
+//Big O: O(1)
+
 void TripWindow::on_nlTripButton_clicked()
 {
     initializeTableInfo();
@@ -217,6 +262,10 @@ void TripWindow::on_nlTripButton_clicked()
     }
 }
 
+
+//executes on design a trip to custom stadiums
+//Big O: O(1)
+
 void TripWindow::on_printCustomButton_clicked()
 {
     initializeTableInfo();
@@ -239,6 +288,10 @@ void TripWindow::on_printCustomButton_clicked()
         appendStad2(customListIndex[i], customListIndex[i+1], travelMap.verticeList, totalDistance, " ");
     }
 }
+
+
+//executes on add souvenir
+//Big O: O(1)
 
 void TripWindow::on_addSouvButton_clicked()
 {
