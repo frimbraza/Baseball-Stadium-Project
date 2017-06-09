@@ -1,7 +1,17 @@
+/*
+* Trip window class file
+* 
+* Trip window is a a second screen that opens when design a trip is selected
+*
+* contains on_button_clicked, lists, and setList functions
+*
+*/
+
 #include "tripwindow.h"
 #include "ui_tripwindow.h"
 #include <iostream>     // testing.. Remove later
 
+//TripWindow Widget
 TripWindow::TripWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TripWindow)
@@ -11,11 +21,13 @@ TripWindow::TripWindow(QWidget *parent) :
     totalPrice = 0;
 }
 
+//destructor
 TripWindow::~TripWindow()
 {
     delete ui;
 }
 
+//set function
 void TripWindow::setSortedStadList(const vector<StadiumInfo> &other)
 {
     stadList = other;
@@ -24,6 +36,7 @@ void TripWindow::setSortedStadList(const vector<StadiumInfo> &other)
         ui->comboBox->addItem(QString::fromStdString(stadList[i].getName()));
 }
 
+//set function
 void TripWindow::setSouvList(const vector<Souvenir> &other)
 {
     souvList = other;
@@ -31,6 +44,7 @@ void TripWindow::setSouvList(const vector<Souvenir> &other)
         ui->comboBox_2->addItem(QString::fromStdString(souvList[i].getName()));
 }
 
+//append stadiums
 void TripWindow::appendStadium(int index, vector<StadiumInfo> theList)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount() + 1);
@@ -48,6 +62,7 @@ void TripWindow::appendStadium(int index, vector<StadiumInfo> theList)
         ui->TableWidget->setItem(n, 2, new QTableWidgetItem("AL"));
 }
 
+//append souvenirs
 void TripWindow::appendSouv(int index)
 {
     ui->TableWidget->setRowCount(ui->TableWidget->rowCount() + 1);
@@ -64,6 +79,7 @@ void TripWindow::on_customTripButton_clicked()
 
 }
 
+//initialize list of stadiums table
 void TripWindow::initializeTableInfo()
 {
     ui->TableWidget->setColumnCount(3);
@@ -75,6 +91,7 @@ void TripWindow::initializeTableInfo()
     ui->TableWidget->setRowCount(0);
 }
 
+//initialize souvenir table
 void TripWindow::initializeSouvTable()
 {
     souvListInitialized = true;
@@ -88,7 +105,7 @@ void TripWindow::initializeSouvTable()
     ui->TableWidget->setRowCount(0);
 }
 
-// 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
+//executes on add to trip
 void TripWindow::on_addToTripButton_clicked()
 {
     int index = ui->comboBox->currentIndex();
@@ -102,7 +119,7 @@ void TripWindow::on_addToTripButton_clicked()
     }
 }
 
-
+//executes on reset
 void TripWindow::on_resetListButton_clicked()
 {
     stadList = original;
@@ -112,6 +129,7 @@ void TripWindow::on_resetListButton_clicked()
         ui->comboBox->addItem(QString::fromStdString(stadList[i].getName()));
 }
 
+//executes on design a trip to all stadiums
 void TripWindow::on_allTripButton_clicked()
 {
     initializeTableInfo();
@@ -121,6 +139,7 @@ void TripWindow::on_allTripButton_clicked()
     }
 }
 
+//executes on design a trip to AL stadiums
 void TripWindow::on_alTripButton_clicked()
 {
     initializeTableInfo();
@@ -131,6 +150,7 @@ void TripWindow::on_alTripButton_clicked()
     }
 }
 
+//executes on design a trip to NL stadiums
 void TripWindow::on_nlTripButton_clicked()
 {
     initializeTableInfo();
@@ -141,6 +161,7 @@ void TripWindow::on_nlTripButton_clicked()
     }
 }
 
+//executes on design a trip to custom stadiums
 void TripWindow::on_printCustomButton_clicked()
 {
     initializeTableInfo();
@@ -150,6 +171,7 @@ void TripWindow::on_printCustomButton_clicked()
     }
 }
 
+//executes on add souvenir
 void TripWindow::on_addSouvButton_clicked()
 {
     if(!souvListInitialized)

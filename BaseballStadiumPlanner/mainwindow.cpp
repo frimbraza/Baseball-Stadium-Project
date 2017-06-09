@@ -1,3 +1,12 @@
+/*
+* Main window class file
+* 
+* contains () operator, sortList and on_button_clicked functions
+* 
+* main window is the first page of our interface
+*
+*/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "listwindow.h"

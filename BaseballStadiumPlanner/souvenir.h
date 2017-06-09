@@ -1,3 +1,10 @@
+/*
+* Souvenir header file
+* 
+* initializes souvenir variables, set/get functions
+* 
+*/
+
 #ifndef SOUVENIR
 #define SOUVENIR
 #include <iostream>

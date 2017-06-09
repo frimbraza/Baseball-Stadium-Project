@@ -1,3 +1,12 @@
+/*
+* Trip window header file
+* 
+* initialize on_button_clicked, lists, and setList functions
+*
+*
+*
+*/
+
 #ifndef TRIPWINDOW_H
 #define TRIPWINDOW_H
 // whole thing // 6/8/2017!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -45,20 +54,28 @@ private slots:
 
     void on_printCustomButton_clicked();
 
-
-
     void on_addSouvButton_clicked();
 
 private:
     Ui::TripWindow *ui;
+    
+    //list of stadiums
     vector<StadiumInfo> original;
 
+    //copy of original
     vector<StadiumInfo> stadList;
+
+    //list of either NL or AL stadiums
     vector<StadiumInfo> customList;
 
+    //list of souvenirs
     vector<Souvenir> souvList;
+    
+    //boolean variable to check if souvList
+    //has been initilized or not
     bool souvListInitialized;
 
+    //tracks total price for selected souvenirs
     double totalPrice;
 };
 
