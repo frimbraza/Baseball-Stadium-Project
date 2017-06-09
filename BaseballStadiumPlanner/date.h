@@ -1,12 +1,3 @@
-/*date header file
-* 
-* date assigns months to numbers and converts strings to ints and vice versa
-* 
-* initializes strings and print functions
-* 
-*/
-
-
 #ifndef DATE_H
 #define DATE_H
 #include <iostream>

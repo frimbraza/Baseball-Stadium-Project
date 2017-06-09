@@ -19,13 +19,7 @@ adminFuntion::~adminFuntion()
     delete ui;
 }
 
-
-
-/****************************************************
-void adminFuntion::readFromFile()
-_____________________________________________________
-Loading info to stadium list and souvenir list
-*****************************************************/
+//Loading info to stadium list and souvenir list
 void adminFuntion::readFromFile()
 {
     ifstream inFile;
@@ -100,23 +94,11 @@ void adminFuntion::readFromFile()
 
 }
 
-
-/****************************************************
-void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
-_____________________________________________________
-Sets a vector to another vector in parameter
-*****************************************************/
 void adminFuntion::setSortedStadiumList(const vector<StadiumInfo>& otherList)
 {
     this->sortedList = otherList;
 }
 
-
-/****************************************************
-void adminFuntion::addSouvenirList()
-_____________________________________________________
-intializes souveninr list
-*****************************************************/
 void adminFuntion::addSouvenirList()
 {
     ifstream inFile;
@@ -149,11 +131,7 @@ void adminFuntion::addSouvenirList()
 }
 
 
-/****************************************************
-void adminFuntion::saveAtNewSouvnierFile()
-_____________________________________________________
-Save changes to new file
-*****************************************************/
+//Save changes to new file
 void adminFuntion::saveAtNewSouvnierFile()
 {
     ofstream outFile;
@@ -175,11 +153,6 @@ void adminFuntion::saveAtNewSouvnierFile()
 
 }
 
-/****************************************************
-void adminFuntion::saveAtNewStadiumFile()
-_____________________________________________________
-Save changes to new file
-*****************************************************/
 void adminFuntion::saveAtNewStadiumFile()
 {
     ofstream outFile;
@@ -223,13 +196,11 @@ void adminFuntion::on_Display_clicked()
     displaySouvenir();
 }
 
-//Display stadium button
 void adminFuntion::on_Display_Stadium_List_1_clicked()
 {
     printAll();
 }
 
-//Display stadium button
 void adminFuntion::on_Display_Stadium_List_clicked()
 {
     printAll();
@@ -293,7 +264,7 @@ void adminFuntion::appendStadium(int index, vector<StadiumInfo> theList)
 
 }
 
-//Initialize souvenir table info
+//Initialize table info
 void adminFuntion::initializeSouvenirTableInfo()
 {
     ui->tableWidget->setColumnCount(2);
@@ -305,7 +276,6 @@ void adminFuntion::initializeSouvenirTableInfo()
     ui->tableWidget->setRowCount(0);
 }
 
-//Initialize stadium table info
 void adminFuntion::initializeStadiumTableInfo()
 {
     ui->tableWidget->setColumnCount(7);
@@ -318,7 +288,6 @@ void adminFuntion::initializeStadiumTableInfo()
 }
 
 //Souvenir Functions
-//Add souvenir to the list
 void adminFuntion::on_Add_Souvenir_clicked()
 {
     QString name, price;
@@ -366,7 +335,6 @@ void adminFuntion::on_Add_Souvenir_clicked()
 
 }
 
-//Delete souvenir from the list
 void adminFuntion::on_Delete_Souvenir_clicked()
 {
     QString name;
@@ -401,7 +369,6 @@ void adminFuntion::on_Delete_Souvenir_clicked()
     displaySouvenir();
 }
 
-//Change souvenir info
 void adminFuntion::on_Change_Souvenir_clicked()
 {
     QString name, price;
