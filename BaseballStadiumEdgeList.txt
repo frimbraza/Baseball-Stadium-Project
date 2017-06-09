@@ -24,7 +24,7 @@ Minute Maid Park,Busch Stadium,680
 Minute Maid Park,Tropicana Field,790
 Minute Maid Park,Marlins Park,965
 Kauffman Stadium,Wrigley Field,415
-Kauffman Stadium,US. Cellular Stadium,415
+Kauffman Stadium,US Cellular Stadium,415
 Kauffman Stadium,Busch Stadium,235
 Target Field,Miller Park,300
 Target Field,Brusch Stadium,465
